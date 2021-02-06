@@ -4,6 +4,10 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import { Provider as PaperProvider, DefaultTheme } from 'react-native-paper';
 
+import { LogBox } from 'react-native';
+
+
+
 import { AuthProvider } from '../data/contexts/Auth';
 
 import Routes from '../infra/routes';
