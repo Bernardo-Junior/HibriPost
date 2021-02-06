@@ -38,6 +38,7 @@ export const Header = styled.View`
 
 export const TxtHeader = styled.Text`
   font-family: Lato;
+  margin-left: ${resp(6)}px;
 `;
 export const TxtHeaderBold = styled.Text`
   font-family: Lato-Bold;
