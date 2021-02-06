@@ -17,14 +17,15 @@ export const AuthProvider: React.FC = ({ children }) => {
   const [user, setUser] = useState<IUser | null>(null);
 
   useEffect(() => {
-
     AsyncStorage.getItem('@HibriPost:user')
       .then(async userStorage => {
         const userParser = userStorage != null ? JSON.parse(userStorage) : null;
         setUser(userParser);
-        console.log(userParser);
       })
-  }, [user, setUser])
+      .catch(error => {
+        Alert.alert("Ocorreu um erro ao carregar seus dados", error);
+      })
+  }, [])
 
   const logIn = useCallback((email: String) => {
     api.get(`/users?email=${email}`)
