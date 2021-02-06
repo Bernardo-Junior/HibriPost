@@ -4,12 +4,14 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import { Provider as PaperProvider, DefaultTheme } from 'react-native-paper';
 
+import { AuthProvider } from '../data/contexts/Auth';
+
 import Routes from '../infra/routes';
 
 const App: React.FC = () => {
   const theme = {
     ...DefaultTheme,
-    roundness: 15,
+    roundness: 5,
     colors: {
       ...DefaultTheme.colors,
       primary: '#3498db',
@@ -18,9 +20,11 @@ const App: React.FC = () => {
   };
   return (
     <NavigationContainer>
-      <PaperProvider theme={theme}>
-        <Routes />
-      </PaperProvider>
+      <AuthProvider>
+        <PaperProvider theme={theme}>
+          <Routes />
+        </PaperProvider>
+      </AuthProvider>
     </NavigationContainer>
   )
 }
