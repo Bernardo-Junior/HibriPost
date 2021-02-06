@@ -36,6 +36,8 @@
 		B09828D7AADC4EC3AD772FFE /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 160B7F2486D748E6B5894DB9 /* Lato-Bold.ttf */; };
 		7B7499ABAF5145DEA2B5E7D0 /* LatoBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BCB5B8DD0CA40808819769F /* LatoBold.ttf */; };
 		414A01DC926046A788A68BE1 /* RobotoBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EAE45451569E4A2B92D09D92 /* RobotoBold.ttf */; };
+		32304A2AC0CF47908AB7AD31 /* OpenSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 687B654B209F4718A5C7D3DC /* OpenSans.ttf */; };
+		F73ADA2C69FE4E6891B918A6 /* OpenSansBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE2D521EEF4A47299B59BC43 /* OpenSansBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		160B7F2486D748E6B5894DB9 /* Lato-Bold.ttf */ = {isa = PBXFileReference; name = "Lato-Bold.ttf"; path = "../src/assets/fonts/Lato-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		0BCB5B8DD0CA40808819769F /* LatoBold.ttf */ = {isa = PBXFileReference; name = "LatoBold.ttf"; path = "../src/assets/fonts/LatoBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		EAE45451569E4A2B92D09D92 /* RobotoBold.ttf */ = {isa = PBXFileReference; name = "RobotoBold.ttf"; path = "../src/assets/fonts/RobotoBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		687B654B209F4718A5C7D3DC /* OpenSans.ttf */ = {isa = PBXFileReference; name = "OpenSans.ttf"; path = "../src/assets/fonts/OpenSans.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DE2D521EEF4A47299B59BC43 /* OpenSansBold.ttf */ = {isa = PBXFileReference; name = "OpenSansBold.ttf"; path = "../src/assets/fonts/OpenSansBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +225,8 @@
 				160B7F2486D748E6B5894DB9 /* Lato-Bold.ttf */,
 				0BCB5B8DD0CA40808819769F /* LatoBold.ttf */,
 				EAE45451569E4A2B92D09D92 /* RobotoBold.ttf */,
+				687B654B209F4718A5C7D3DC /* OpenSans.ttf */,
+				DE2D521EEF4A47299B59BC43 /* OpenSansBold.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -384,6 +390,8 @@
 				B09828D7AADC4EC3AD772FFE /* Lato-Bold.ttf in Resources */,
 				7B7499ABAF5145DEA2B5E7D0 /* LatoBold.ttf in Resources */,
 				414A01DC926046A788A68BE1 /* RobotoBold.ttf in Resources */,
+				32304A2AC0CF47908AB7AD31 /* OpenSans.ttf in Resources */,
+				F73ADA2C69FE4E6891B918A6 /* OpenSansBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
