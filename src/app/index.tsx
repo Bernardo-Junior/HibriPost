@@ -14,6 +14,8 @@ import { AuthProvider } from '../data/contexts/Auth';
 
 import { ModalPostProvider } from '../data/contexts/ModalPost';
 
+import { ErroProvider } from '../data/contexts/Error';
+
 import Routes from '../infra/routes';
 
 const App: React.FC = () => {
@@ -28,13 +30,15 @@ const App: React.FC = () => {
   };
   return (
     <NavigationContainer>
-      <ModalPostProvider>
-        <AuthProvider>
-          <PaperProvider theme={theme}>
-            <Routes />
-          </PaperProvider>
-        </AuthProvider>
-      </ModalPostProvider>
+      <ErroProvider>
+        <ModalPostProvider>
+          <AuthProvider>
+            <PaperProvider theme={theme}>
+              <Routes />
+            </PaperProvider>
+          </AuthProvider>
+        </ModalPostProvider>
+      </ErroProvider>
     </NavigationContainer>
   )
 }
