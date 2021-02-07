@@ -6,7 +6,9 @@ import { Provider as PaperProvider, DefaultTheme } from 'react-native-paper';
 
 import { LogBox } from 'react-native';
 
-
+LogBox.ignoreLogs([
+  'VirtualizedLists should never be nested inside plain ScrollViews with the same orientation'
+])
 
 import { AuthProvider } from '../data/contexts/Auth';
 
