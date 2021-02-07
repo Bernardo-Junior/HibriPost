@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useContext } from 'react';
 
 import api from '../../../infra/services/api';
 
@@ -8,6 +8,9 @@ import { IPost } from '../../../data/protocols/Post';
 
 import { Alert, ListRenderItem } from 'react-native';
 
+import ModalPostContext from '../../../data/contexts/ModalPost';
+
+import ModalPost from '../../components/ModalPost';
 
 import {
   StatusBar,
@@ -28,6 +31,7 @@ const Post: React.FC = () => {
   const [posts, setPosts] = useState<IPost[]>([]);
   const [copyPosts, setCopyPosts] = useState<IPost[]>([]);
   const [valueSearch, setValueSearch] = useState<string>("");
+  const {  setPost, setStateModal } = useContext(ModalPostContext);
 
   useEffect(() => {
     loadData();
@@ -44,6 +48,7 @@ const Post: React.FC = () => {
       })
   }, [])
 
+
   const renderItem: ListRenderItem<IPost> = ({ item }) => {
     return (
       <Card>
@@ -57,7 +62,7 @@ const Post: React.FC = () => {
             : `${item.body.substring(0, 90)}...`}"
         </TxtInfocard>
         <ViewBtnMore>
-          <BtnMore onPress={() => {}}>
+          <BtnMore onPress={() => {setStateModal(true), setPost(item)}}>
             <IconArrow name="arrow-right-circle" size={35} />
           </BtnMore>
         </ViewBtnMore>
@@ -67,6 +72,7 @@ const Post: React.FC = () => {
 
   return (
     <>
+      <ModalPost />
       <StatusBar backgroundColor={"#E5E5E5"} />
       <Container>
         <ScroolView nestedScrollEnabled={true}>

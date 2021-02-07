@@ -42,7 +42,7 @@ export const SafeAreaView  = styled.SafeAreaView``;
 export const TxtTitleCard = styled.Text`
   color: #D9485C;
   font-family: OpenSansBold;
-  font-size: ${resp(16)}px;
+  font-size: ${resp(18)}px;
   width: ${resp(300)}px;
   margin-top: ${resp(15)}px;
 `;
@@ -50,6 +50,7 @@ export const TxtTitleCard = styled.Text`
 export const TxtInfocard = styled.Text`
   color: #4F4F4F;
   font-family: OpenSans;
+  font-size: ${resp(16)}px;
   width: ${resp(300)}px;
   margin-top: ${resp(15)}px;
 `;
