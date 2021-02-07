@@ -10,12 +10,11 @@ import { Alert, FlatList, Modal, } from 'react-native';
 export const Container = styled.View`
   position: absolute;
   flex: 1;
+  height: ${resp(500)}px;
   background-color: #E5E5E5;
 `;
 
-export const ScroolView = styled.ScrollView``;
-
-export const ViewModal = styled.View`
+export const ScroolView = styled.ScrollView`
   flex: 1;
   background-color: #E5E5E5;
 `;
@@ -109,3 +108,4 @@ export const TextBody = styled.Text`
   font-family: OpenSans;
   margin-bottom: ${resp(20)}px;
 `;
+
