@@ -4,3 +4,7 @@ export interface IPost {
   title: String;
   body: String;
 }
+
+export interface IBtnOpacity {
+  state: boolean;
+}
