@@ -51,13 +51,13 @@ const Post: React.FC = () => {
   const [con, setCon] = useState<Boolean>(true);
 
   useEffect(() => {
-      loadData();
-      statePage();
+    loadData();
+    statePage();
   }, [page])
 
   useEffect(() => {
-    console.log(pressTry);
-    if(pressTry) {
+    if (pressTry === 1) {
+      console.log("1");
       loadData();
       statePage();
     }
@@ -79,15 +79,16 @@ const Post: React.FC = () => {
   const loadData = useCallback(() => {
     api.get(`/posts?userId=${page}`)
       .then(response => {
-        if (response.data != null) {
-          setPressTry(false);
+        if (response.data != []) {
+          setPressTry(0);
           setPosts(response.data);
+          setRefreshing(false);
           setCon(true);
           setCopyPosts(response.data);
         }
       })
       .catch(error => {
-        setPressTry(false);
+        setPressTry(0);
         setRefreshing(false);
         setCon(false);
       })
@@ -125,19 +126,19 @@ const Post: React.FC = () => {
       <ModalPost />
       <StatusBar backgroundColor={"#E5E5E5"} />
       <Container>
-      {con
-            ?
-            <>
-        <ScroolView
-          refreshControl={
-            <RefreshControl
-              refreshing={refreshing}
-              onRefresh={_onRefresh.bind(this)}
-            />
-          }
-        >
-          <Header />
-          
+        {con
+          ?
+          <>
+            <ScroolView
+              refreshControl={
+                <RefreshControl
+                  refreshing={refreshing}
+                  onRefresh={_onRefresh.bind(this)}
+                />
+              }
+            >
+              <Header />
+
               <SearchBarPost
                 placeholder="Search"
                 onChangeText={value => { setValueSearch(String(value)) }}
@@ -168,11 +169,12 @@ const Post: React.FC = () => {
                   renderItem={renderItem}
                 />
               </SafeAreaView>
-            
-        </ScroolView>
-        </>
-            : <Error />
-          }
+
+            </ScroolView>
+          </>
+          :
+          <Error opt={1} />
+        }
       </Container>
     </>
   )
