@@ -8,6 +8,8 @@ import { FlatList } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 Feather.loadFont();
 
+import { IBtnOpacity } from '../../../data/protocols/Post';
+
 
 export const StatusBar = styled.StatusBar``;
 
@@ -70,6 +72,28 @@ export const BtnMore = styled.TouchableOpacity`
 
 export const IconArrow = styled(Feather)`
   color: #16394D;
+`;
+
+export const ViewPagination = styled.View`
+  width: ${resp(350)}px;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row;
+  align-self: center;
+  margin-bottom: ${resp(20)}px;
+`;
+
+export const BtnRight = styled.TouchableOpacity<IBtnOpacity>`
+  opacity: ${props => props.state === false ? 1 : 0.3}
+`;
+export const BtnLeft = styled(BtnRight)<IBtnOpacity>`
+`;
+
+export const IconRight = styled(Feather)``;
+export const IconLeft = styled(Feather)``;
+
+export const TxtPage = styled.Text`
+  font-size: ${resp(18)}px;
 `;
 
 

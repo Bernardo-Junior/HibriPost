@@ -24,7 +24,13 @@ import {
   TxtInfocard,
   BtnMore,
   IconArrow,
-  ViewBtnMore
+  ViewBtnMore,
+  ViewPagination,
+  BtnRight,
+  BtnLeft,
+  IconLeft,
+  IconRight,
+  TxtPage
 } from './styles';
 
 const Post: React.FC = () => {
@@ -32,21 +38,40 @@ const Post: React.FC = () => {
   const [copyPosts, setCopyPosts] = useState<IPost[]>([]);
   const [valueSearch, setValueSearch] = useState<string>("");
   const {  setPost, setStateModal } = useContext(ModalPostContext);
+  const [page, setPage] = useState<number>(1);
+  const [stateBtnLeft, setStateBtnLeft] = useState<boolean>(true);
+  const [stateBtnRight, setStateBtnRight] = useState<boolean>(false); 
 
   useEffect(() => {
     loadData();
-  }, [])
+    statePage();
+  }, [page])
+
+  const statePage = () => {
+    if(page === 1) {
+      setStateBtnLeft(true)
+    }
+    else if(page === 10) {
+      setStateBtnRight(true);
+    }
+    else {
+      setStateBtnLeft(false);
+      setStateBtnRight(false);
+    }
+  }
 
   const loadData = useCallback(() => {
-    api.get('/posts')
+    api.get(`/posts?userId=${page}`)
       .then(response => {
-        setPosts(response.data);
-        setCopyPosts(response.data);
+        if(response.data != null){
+          setPosts(response.data);
+          setCopyPosts(response.data);
+        } 
       })
       .catch(error => {
         Alert.alert("Ocorreu um erro", error);
       })
-  }, [])
+  }, [page])
 
 
   const renderItem: ListRenderItem<IPost> = ({ item }) => {
@@ -82,6 +107,22 @@ const Post: React.FC = () => {
             onChangeText={value => { setValueSearch(String(value)) }}
             value={valueSearch}
           />
+
+          <ViewPagination>
+            <BtnLeft 
+              disabled={stateBtnLeft} 
+              state={stateBtnLeft}
+              onPress={() => {setPage(page-1), setStateBtnLeft(false)}}>
+              <IconLeft name="chevron-left" size={35} />
+            </BtnLeft>
+            <TxtPage>{page}</TxtPage>
+            <BtnRight 
+              disabled={stateBtnRight}
+              state={stateBtnRight} 
+              onPress={() => {setPage(page+1), setStateBtnLeft(false)}}>
+              <IconRight name="chevron-right" size={35} />
+            </BtnRight>
+          </ViewPagination>
           <SafeAreaView>
             <FlatList
               data={posts}
