@@ -96,4 +96,6 @@ export const TxtPage = styled.Text`
   font-size: ${resp(18)}px;
 `;
 
+export const RefreshControl = styled.RefreshControl``;
+
 
