@@ -12,6 +12,8 @@ LogBox.ignoreLogs([
 
 import { AuthProvider } from '../data/contexts/Auth';
 
+import { ModalPostProvider } from '../data/contexts/ModalPost';
+
 import Routes from '../infra/routes';
 
 const App: React.FC = () => {
@@ -26,11 +28,13 @@ const App: React.FC = () => {
   };
   return (
     <NavigationContainer>
-      <AuthProvider>
-        <PaperProvider theme={theme}>
-          <Routes />
-        </PaperProvider>
-      </AuthProvider>
+      <ModalPostProvider>
+        <AuthProvider>
+          <PaperProvider theme={theme}>
+            <Routes />
+          </PaperProvider>
+        </AuthProvider>
+      </ModalPostProvider>
     </NavigationContainer>
   )
 }
