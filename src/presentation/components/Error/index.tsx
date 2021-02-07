@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { PropsWithChildren, ReactChild, ReactComponentElement, ReactNode, useContext } from 'react';
 
 import {
   Container,
@@ -9,10 +9,12 @@ import {
   TxtTry
 } from './styles';
 
+import { Props } from '../../../data/protocols/Error';
+
 import ErrorContext from '../../../data/contexts/Error';
 
-const Error: React.FC = () => {
-  const { setPressTry } = useContext(ErrorContext);
+const Error: React.FC<Props> = (props) => {
+  const { setPressTry, pressTry } = useContext(ErrorContext);
   return (
     <Container>
         <CircleViewIcon>
@@ -23,7 +25,7 @@ const Error: React.FC = () => {
           Erro de conexão
         </TxtError>
 
-        <BtnTry onPress={() => {setPressTry(true)}}>
+        <BtnTry onPress={() => {setPressTry(props.opt)}}>
           <TxtTry>Tentar Novamente</TxtTry>
         </BtnTry>
     </Container>
