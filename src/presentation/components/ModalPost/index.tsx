@@ -4,7 +4,6 @@ import {
   Container,
   Modal,
   ScroolView,
-  ViewModal,
   BtnBack,
   IconBack,
   Card,
@@ -19,37 +18,61 @@ import {
   ViewInfoComment,
   TxtEmail,
   TxtName,
-  TextBody
+  TextBody,
 } from './styles';
 
 import { ListRenderItem } from 'react-native';
 
 import ModalPostContext from '../../../data/contexts/ModalPost';
 
+import ErrorContext from '../../../data/contexts/Error';
+
 import { IComment } from '../../../data/protocols/ModalPost';
+
+import Loading from '../Loading';
+
+import Error from '../Error';
 
 import api from '../../../infra/services/api';
 
 const ModalPost: React.FC = () => {
   const { post, stateModal, setStateModal } = useContext(ModalPostContext);
   const [comments, setComments] = useState<IComment[]>([]);
+  const [load, setLoad] = useState<Boolean>(true);
+  const [con, setCon] = useState<Boolean>(false);
+  const { pressTry, setPressTry } = useContext(ErrorContext);
 
 
   useEffect(() => {
-    if (post?.id != null) {
+    setComments([]);
+    loadComments();
+  }, [post, stateModal])
+
+  useEffect(() => {
+    if(pressTry === 2) {
+      console.log("2");
+      setComments([]);
       loadComments();
     }
-  }, [stateModal])
+  }, [pressTry])
 
   const loadComments = useCallback(() => {
     api.get(`/posts/${post?.id}/comments`)
       .then(response => {
-        setComments(response.data);
+        setTimeout(() => {
+          setLoad(false);
+          setPressTry(0);
+          setCon(false);
+          setComments(response.data);
+        }, 2000)
       })
       .catch(error => {
         Alert.alert("Erro", "Ocorreu um erro de conexão, por favor tente novamente");
+        setLoad(false);
+        setPressTry(0);
+        setCon(true);
       })
-  }, [stateModal])
+  }, [post, stateModal])
 
   const renderItem: ListRenderItem<IComment> = ({ item }) => {
     return (
@@ -78,13 +101,12 @@ const ModalPost: React.FC = () => {
         transparent={true}
         visible={stateModal}
         onRequestClose={() => {
-          setComments([]);
+          setLoad(true);
           setStateModal(false);
         }}
       >
         <ScroolView>
-          <ViewModal>
-            <BtnBack onPress={() => { setStateModal(false), setComments([]); }}>
+            <BtnBack onPress={() => { setLoad(true);  setStateModal(false);}}>
               <IconBack name="arrow-left" size={35} />
             </BtnBack>
 
@@ -97,17 +119,24 @@ const ModalPost: React.FC = () => {
                 {post?.body}
               </TxtInfocard>
             </Card>
-
             <TxtTitle>Comentários</TxtTitle>
-            <FlatList
-              data={comments}
-              keyExtractor={comment => String(comment.id)}
-              showsVerticalScrollIndicator={false}
-              numColumns={1}
-              renderItem={renderItem}
-            />
-          </ViewModal>
-        </ScroolView>
+            {
+              con
+              ? <Error opt={2}/>
+              :
+              load === true
+              ?
+              <Loading />
+              : 
+              <FlatList
+                data={comments}
+                keyExtractor={comment => String(comment.id)}
+                showsVerticalScrollIndicator={false}
+                numColumns={1}
+                renderItem={renderItem}
+              />
+            }
+          </ScroolView>
       </Modal>
     </Container>
   )
