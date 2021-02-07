@@ -50,7 +50,6 @@ const ModalPost: React.FC = () => {
 
   useEffect(() => {
     if(pressTry === 2) {
-      console.log("2");
       setComments([]);
       loadComments();
     }
