@@ -16,10 +16,17 @@ import ModalPostContext from '../../../data/contexts/ModalPost';
 
 import ErrorContext from '../../../data/contexts/Error';
 
+import AuthContext from '../../../data/contexts/Auth';
+
 import ModalPost from '../../components/ModalPost';
 
 import {
   StatusBar,
+  ViewHeader,
+  ViewIconHeader,
+  IconExit,
+  BtnExit,
+  ViewIconExit,
   Container,
   SearchBarPost,
   FlatList,
@@ -46,6 +53,7 @@ const Post: React.FC = () => {
   const [valueSearch, setValueSearch] = useState<string>("");
   const { setPost, setStateModal } = useContext(ModalPostContext);
   const { pressTry, setPressTry } = useContext(ErrorContext);
+  const { logOut } = useContext(AuthContext);
   const [page, setPage] = useState<number>(1);
   const [stateBtnLeft, setStateBtnLeft] = useState<boolean>(true);
   const [stateBtnRight, setStateBtnRight] = useState<boolean>(false);
@@ -136,7 +144,7 @@ const Post: React.FC = () => {
   return (
     <>
       <ModalPost />
-      <StatusBar backgroundColor={"#E5E5E5"} />
+      <StatusBar backgroundColor={"#E5E5E5"} barStyle="dark-content"/>
       <Container>
         {con
           ?
@@ -150,7 +158,16 @@ const Post: React.FC = () => {
                 />
               }
             >
-              <Header />
+              <ViewHeader>
+                <ViewIconHeader>
+                  <Header />
+                </ViewIconHeader>
+                <ViewIconExit>
+                  <BtnExit onPress={() => {logOut()}}>
+                    <IconExit name="log-out" size={30} />
+                  </BtnExit>
+                </ViewIconExit>
+              </ViewHeader>
 
               <SearchBarPost
                 placeholder="Digite o título"
@@ -158,11 +175,11 @@ const Post: React.FC = () => {
                 value={valueSearch}
               />
 
-              {loading 
+              {loading
                 ? <Loading />
 
                 : <ViewPagination>
-                <TxtPage>{page} de 10</TxtPage>
+                  <TxtPage>{page} de 10</TxtPage>
                   <BtnLeft
                     disabled={stateBtnLeft}
                     state={stateBtnLeft}
@@ -176,8 +193,8 @@ const Post: React.FC = () => {
                     <IconRight name="chevron-right" size={30} />
                   </BtnRight>
                 </ViewPagination>
-              } 
-              
+              }
+
               <SafeAreaView>
                 <FlatList
                   data={posts}
