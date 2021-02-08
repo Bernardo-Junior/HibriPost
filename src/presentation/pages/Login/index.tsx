@@ -13,7 +13,8 @@ import {
   TxtDescrition,
   BtnLogin,
   TxtBtn,
-  Body
+  Body,
+  Alert
 } from './styles';
 
 
@@ -22,6 +23,14 @@ import AuthContext from '../../../data/contexts/Auth';
 const Login: React.FC = () => {
   const [email, setEmail] = useState<String>("");
   const { logIn, logOut } = useContext(AuthContext);
+
+  const verifyEmail = () => {
+    if(email === ""){
+      Alert.alert("Vazio", "Campo de email vazio!")
+    } else {
+      logIn(email)
+    }
+  }
   return (
     <>
       <StatusBar backgroundColor={"#FFF"} />
@@ -55,7 +64,7 @@ const Login: React.FC = () => {
             autoCapitalize="none"
           />
 
-          <BtnLogin onPress={() => {logIn(email)}}>
+          <BtnLogin onPress={() => {verifyEmail()}}>
             <TxtBtn>ENTRAR</TxtBtn>
           </BtnLogin>
 
