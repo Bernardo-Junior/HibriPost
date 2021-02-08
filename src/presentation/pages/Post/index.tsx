@@ -6,6 +6,8 @@ import Header from '../../components/Header';
 
 import Error from '../../components/Error';
 
+import Loading from '../../components/Loading';
+
 import { IPost } from '../../../data/protocols/Post';
 
 import { Alert, ListRenderItem } from 'react-native';
@@ -49,6 +51,7 @@ const Post: React.FC = () => {
   const [stateBtnRight, setStateBtnRight] = useState<boolean>(false);
   const [refreshing, setRefreshing] = useState<boolean>(false);
   const [con, setCon] = useState<Boolean>(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     loadData();
@@ -79,6 +82,7 @@ const Post: React.FC = () => {
     api.get(`/posts?userId=${page}`)
       .then(response => {
         if (response.data != []) {
+          setLoading(false);
           setPressTry(0);
           setPosts(response.data);
           setRefreshing(false);
@@ -87,6 +91,7 @@ const Post: React.FC = () => {
         }
       })
       .catch(error => {
+        setLoading(false);
         setPressTry(0);
         setRefreshing(false);
         setCon(false);
@@ -153,21 +158,26 @@ const Post: React.FC = () => {
                 value={valueSearch}
               />
 
-              <ViewPagination>
-                <BtnLeft
-                  disabled={stateBtnLeft}
-                  state={stateBtnLeft}
-                  onPress={() => { setPage(page - 1), setStateBtnLeft(false) }}>
-                  <IconLeft name="chevron-left" size={35} />
-                </BtnLeft>
-                <TxtPage>{page}/10</TxtPage>
-                <BtnRight
-                  disabled={stateBtnRight}
-                  state={stateBtnRight}
-                  onPress={() => { setPage(page + 1), setStateBtnLeft(false) }}>
-                  <IconRight name="chevron-right" size={35} />
-                </BtnRight>
-              </ViewPagination>
+              {loading 
+                ? <Loading />
+
+                : <ViewPagination>
+                <TxtPage>{page} de 10</TxtPage>
+                  <BtnLeft
+                    disabled={stateBtnLeft}
+                    state={stateBtnLeft}
+                    onPress={() => { setPage(page - 1), setStateBtnLeft(false), setLoading(true) }}>
+                    <IconLeft name="chevron-left" size={30} />
+                  </BtnLeft>
+                  <BtnRight
+                    disabled={stateBtnRight}
+                    state={stateBtnRight}
+                    onPress={() => { setPage(page + 1), setStateBtnLeft(false), setLoading(true) }}>
+                    <IconRight name="chevron-right" size={30} />
+                  </BtnRight>
+                </ViewPagination>
+              } 
+              
               <SafeAreaView>
                 <FlatList
                   data={posts}
