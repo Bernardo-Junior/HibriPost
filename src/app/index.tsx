@@ -4,7 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import { Provider as PaperProvider, DefaultTheme } from 'react-native-paper';
 
-import { LogBox } from 'react-native';
+import { LogBox, StatusBar } from 'react-native';
+StatusBar.setBarStyle("dark-content");
 
 LogBox.ignoreLogs([
   'VirtualizedLists should never be nested inside plain ScrollViews with the same orientation'
