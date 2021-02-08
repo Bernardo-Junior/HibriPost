@@ -3,3 +3,7 @@ export interface IAlbum {
   id: Number;
   title: String;
 }
+
+export interface IBtnOpacity {
+  state: boolean;
+}
