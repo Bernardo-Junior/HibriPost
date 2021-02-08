@@ -66,7 +66,6 @@ const ModalPost: React.FC = () => {
         }, 2000)
       })
       .catch(error => {
-        Alert.alert("Erro", "Ocorreu um erro de conexão, por favor tente novamente");
         setLoad(false);
         setPressTry(0);
         setCon(true);

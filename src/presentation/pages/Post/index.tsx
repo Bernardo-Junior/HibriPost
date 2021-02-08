@@ -152,7 +152,7 @@ const Post: React.FC = () => {
                   onPress={() => { setPage(page - 1), setStateBtnLeft(false) }}>
                   <IconLeft name="chevron-left" size={35} />
                 </BtnLeft>
-                <TxtPage>{page}</TxtPage>
+                <TxtPage>{page}/10</TxtPage>
                 <BtnRight
                   disabled={stateBtnRight}
                   state={stateBtnRight}
