@@ -84,5 +84,6 @@ export const BtnLogOut = styled.TouchableOpacity`
 export const TxtLogOut = styled.Text`
   color: #FFFFFF;
   font-family: OpenSansBold;
+  font-size: ${resp(18)}px;
 `;
 
