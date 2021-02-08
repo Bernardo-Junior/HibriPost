@@ -30,7 +30,7 @@ export const Card = styled.View`
   width: ${resp(350)}px;
   background-color: #FFFFFF;
   margin-bottom: ${resp(20)}px;
-  elevation: 5;
+  elevation: 7;
   align-self: center;
   align-items: center;
   justify-content: flex-start;
@@ -69,8 +69,8 @@ export const ViewComment = styled.View`
 `;
 
 export const CicleView = styled.View`
-  width: ${resp(70)}px;
-  height: ${resp(70)}px;
+  width: ${resp(60)}px;
+  height: ${resp(60)}px;
   border-radius: ${resp(40)}px;
   background-color: #16394D;
   align-items: center;
@@ -89,7 +89,7 @@ export const ViewInfoComment = styled.View`
 
 export const TxtName = styled.Text`
   color: #2F80ED;
-  font-size: ${resp(18)}px;
+  font-size: ${resp(20)}px;
   width: ${resp(265)}px;
   font-family: OpenSans;
 `;
@@ -103,7 +103,7 @@ export const TxtEmail = styled.Text`
 export const TextBody = styled.Text`
   color: #000000;
   width: ${resp(350)}px;
-  font-size: ${resp(18)}px;
+  font-size: ${resp(19)}px;
   align-self: center;
   font-family: OpenSans;
   margin-bottom: ${resp(20)}px;

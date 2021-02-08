@@ -58,12 +58,10 @@ const ModalPost: React.FC = () => {
   const loadComments = useCallback(() => {
     api.get(`/posts/${post?.id}/comments`)
       .then(response => {
-        setTimeout(() => {
           setLoad(false);
           setPressTry(0);
           setCon(false);
           setComments(response.data);
-        }, 2000)
       })
       .catch(error => {
         setLoad(false);
@@ -122,7 +120,7 @@ const ModalPost: React.FC = () => {
               con
               ? <Error opt={2}/>
               :
-              load === true
+              load
               ?
               <Loading />
               : 

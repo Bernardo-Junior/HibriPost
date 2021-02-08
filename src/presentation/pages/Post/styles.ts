@@ -31,7 +31,7 @@ export const Card = styled.View`
   height: ${resp(250)}px;
   background-color: #FFFFFF;
   margin-bottom: ${resp(20)}px;
-  elevation: 5;
+  elevation: 7;
   align-self: center;
   align-items: center;
   justify-content: flex-start;
