@@ -3,6 +3,8 @@ import styled from 'styled-components/native';
 import Feather from 'react-native-vector-icons/Feather';
 Feather.loadFont();
 
+import { Alert } from 'react-native';
+
 import TextInput from 'react-native-paper/src/components/TextInput/TextInput';
 import { TextInputProps } from "react-native-paper/lib/typescript/components/TextInput/TextInput";
 
@@ -12,6 +14,8 @@ export const Container = styled.View`
   flex: 1;
   background-color: #FFFFFF;
 `;
+
+export {Alert};
 
 export const Body = styled.View`
   flex: 1;
