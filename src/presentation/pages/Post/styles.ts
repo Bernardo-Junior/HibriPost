@@ -18,6 +18,29 @@ export const Container = styled.View`
   background-color: #E5E5E5;
 `;
 
+export const ViewHeader = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ViewIconHeader = styled.View`
+  width: ${resp(280.5)}px;
+  margin-left: ${resp(70)}px;
+`;
+
+export const ViewIconExit = styled.View`
+  width: ${resp(70.5)}px;
+`;
+
+export const BtnExit = styled.TouchableOpacity``;
+
+export const IconExit = styled(Feather)`
+  margin-right: ${resp(30)}px;
+  align-self: flex-end;
+`;
+
+
 export const SearchBarPost = styled(Searchbar)`
   width: ${resp(350)}px;
   align-self: center;
