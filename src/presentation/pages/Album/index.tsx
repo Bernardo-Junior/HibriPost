@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import Header from '../../components/Header';
 
+import { Alert, ListRenderItem } from 'react-native';
+
 import {
   StatusBar,
   Container,
@@ -29,6 +31,13 @@ const Album: React.FC = () => {
       })
   }
 
+  const renderItem: ListRenderItem<IAlbum> = ({ item }) => {
+    return (
+      <>
+      </>
+    )
+  }
+
   const SearchPost = (value: string) => {
 
   }
@@ -44,13 +53,13 @@ const Album: React.FC = () => {
           value={valueSearch}
         />
 
-        {/* <FlatList
-          data={posts}
-          keyExtractor={posts => String(posts.id)}
+        <FlatList
+          data={albums}
+          keyExtractor={album => String(album.id)}
           showsVerticalScrollIndicator={false}
           numColumns={3}
           renderItem={renderItem}
-        /> */}
+        />
 
       </Container>
     </>
