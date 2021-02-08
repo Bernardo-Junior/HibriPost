@@ -14,7 +14,7 @@ import api from '../../infra/services/api';
 const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
 export const AuthProvider: React.FC = ({ children }) => {
-  const [user, setUser] = useState<IUser | null>(null);
+  const [user, setUser] = useState<IUser[] | null>(null);
 
   useEffect(() => {
     AsyncStorage.getItem('@HibriPost:user')

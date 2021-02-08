@@ -1,6 +1,6 @@
 export interface IAuthContext {
   signed: Boolean;
-  user: IUser | null;
+  user: IUser[] | null;
   logIn(email: String): void;
   logOut(): void;
 }
@@ -12,7 +12,7 @@ export interface IUser {
   email: String;
   address: IAddress;
   phone: String;
-  website: String;
+  website: string | undefined;
   company: ICompany;
 }
 
