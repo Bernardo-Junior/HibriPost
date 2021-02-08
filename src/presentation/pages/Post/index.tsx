@@ -57,7 +57,6 @@ const Post: React.FC = () => {
 
   useEffect(() => {
     if (pressTry === 1) {
-      console.log("1");
       loadData();
       statePage();
     }
@@ -116,10 +115,18 @@ const Post: React.FC = () => {
     )
   }
 
-  function _onRefresh() {
+  const _onRefresh = () => {
     setRefreshing(true);
     loadData();
   }
+
+  const SearchPost = (value: string) => {
+    const result = copyPosts.filter(post => post.title.includes(value));
+
+    setPosts(result);
+  }
+
+
 
   return (
     <>
@@ -130,6 +137,7 @@ const Post: React.FC = () => {
           ?
           <>
             <ScroolView
+              keyboardShouldPersistTaps='handled'
               refreshControl={
                 <RefreshControl
                   refreshing={refreshing}
@@ -140,8 +148,8 @@ const Post: React.FC = () => {
               <Header />
 
               <SearchBarPost
-                placeholder="Search"
-                onChangeText={value => { setValueSearch(String(value)) }}
+                placeholder="Digite o título"
+                onChangeText={value => { setValueSearch(String(value)), SearchPost(value) }}
                 value={valueSearch}
               />
 
