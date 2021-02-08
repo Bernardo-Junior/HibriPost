@@ -84,7 +84,8 @@ export const ViewPagination = styled.View`
 `;
 
 export const BtnRight = styled.TouchableOpacity<IBtnOpacity>`
-  opacity: ${props => props.state === false ? 1 : 0.3}
+  opacity: ${props => props.state === false ? 1 : 0.3};
+  margin-left: ${resp(13)}px;
 `;
 export const BtnLeft = styled(BtnRight)<IBtnOpacity>`
 `;
@@ -93,7 +94,7 @@ export const IconRight = styled(Feather)``;
 export const IconLeft = styled(Feather)``;
 
 export const TxtPage = styled.Text`
-  font-size: ${resp(18)}px;
+  font-size: ${resp(15)}px;
 `;
 
 export const RefreshControl = styled.RefreshControl``;
