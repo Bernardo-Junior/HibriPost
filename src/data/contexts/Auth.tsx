@@ -30,13 +30,18 @@ export const AuthProvider: React.FC = ({ children }) => {
   const logIn = useCallback((email: String) => {
     api.get(`/users?email=${email}`)
       .then(async response => {
-        setUser(response.data);
+        if(response.headers['content-length'] === undefined) {
+          console.log(response.data);
+          setUser(response.data);
 
-        await AsyncStorage.setItem('@HibriPost:user', JSON.stringify(response.data));
-
+          await AsyncStorage.setItem('@HibriPost:user', JSON.stringify(response.data));
+        }
+        else {
+          Alert.alert("Erro", "Email não cadastrado :(")
+        }
       })
       .catch(error => {
-        Alert.alert("Ocorreu um erro", error);
+        Alert.alert("Erro", "Erro de conexão, verifique sua conexão com a internet :)" );
       })
   }, []);
 
