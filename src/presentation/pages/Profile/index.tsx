@@ -18,13 +18,15 @@ import {
   Linking,
   TxtInfoLink,
   BtnLink,
-  Alert
+  Alert,
+  BtnLogOut,
+  TxtLogOut
 } from './styles';
 
 import AuthContext from '../../../data/contexts/Auth';
 
 const Profile: React.FC = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   
   const handlePress = useCallback(async () => {
     const supported = await Linking.canOpenURL(`http://${user?.[0].website}`);
@@ -112,6 +114,10 @@ const Profile: React.FC = () => {
 
             <TxtTitleInfo>BS</TxtTitleInfo>
             <TxtInfo>{user?.[0].company.bs}</TxtInfo>
+
+            <BtnLogOut onPress={() => {logOut()}}>
+              <TxtLogOut>Sair</TxtLogOut>
+            </BtnLogOut>
           </ViewInfo>
         </ScroolView>
       </Container>
