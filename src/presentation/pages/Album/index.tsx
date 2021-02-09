@@ -40,7 +40,7 @@ import api from '../../../infra/services/api';
 
 const Album: React.FC = () => {
   const { modalGallery, setModalGallery, setIdAlbum, setName, setStateModalLoading } = useContext(ModaGalleryContext);
-  const { pressTry } = useContext(ErrorContext);
+  const { pressTry, setPressTry } = useContext(ErrorContext);
   const [valueSearch, setValueSearch] = useState<string>("");
   const [albums, setAlbums] = useState<IAlbum[]>([]);
   const [albumsCopy, setAlbumsCopy] = useState<IAlbum[]>([]);
@@ -81,12 +81,14 @@ const Album: React.FC = () => {
       .then(response => {
         setLoading(false);
         setAlbums(response.data);
+        setPressTry(0);
         setCon(true);
         setAlbumsCopy(response.data);
         setRefreshing(false);
       })
       .catch(error => {
         setCon(false);
+        setPressTry(0);
         setLoading(false);
         setRefreshing(false);
       })
