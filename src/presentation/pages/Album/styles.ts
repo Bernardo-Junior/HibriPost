@@ -34,20 +34,27 @@ export const ContainerCards = styled.View`
 export const BtnCards = styled.TouchableOpacity``;
 
 export const Cards = styled.View`
-  margin-top: ${resp(20)}px;
-  width: ${resp(100)}px;
+  margin-top: ${resp(5)}px;
+  margin-bottom: ${resp(20)}px;
+  width: ${resp(350)}px;
   height: ${resp(100)}px;
-  background-color: black;
+  background-color: #FFFFFF;
   justify-content: center;
+  elevation: 5;
+  font-family: OpenSansBold;
+  border-radius: ${resp(12)}px;
   align-items: center;
 `;
+
+export const SafeAreaView  = styled.SafeAreaView``;
 
 export const ScroolView = styled.ScrollView``;
 
 export const TxtTitle = styled.Text`
-  width: ${resp(100)}px;
+  width: ${resp(320)}px;
   font-family: OpenSansBold;
-  text-align: left;
+  text-align: center;
+  font-size: ${resp(16)}px;
   color: #D9485C;
 `;
 
