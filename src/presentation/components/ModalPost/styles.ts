@@ -109,3 +109,8 @@ export const TextBody = styled.Text`
   margin-bottom: ${resp(20)}px;
 `;
 
+export const ContainerError = styled.View`
+  flex: 1;
+  margin-top: ${resp(60)}px;
+`;
+
