@@ -24,7 +24,8 @@ import {
   IconLeft,
   IconRight,
   TxtPage,
-  ViewPagination
+  ViewPagination,
+  SafeAreaView
 } from './styles';
 
 import Loading from '../../components/Loading';
@@ -34,9 +35,10 @@ import { IAlbum } from '../../../data/protocols/Album';
 import api from '../../../infra/services/api';
 
 const Album: React.FC = () => {
-  const { modalGallery, setModalGallery, setIdAlbum, setName } = useContext(ModaGalleryContext);
+  const { modalGallery, setModalGallery, setIdAlbum, setName, setStateModalLoading } = useContext(ModaGalleryContext);
   const [valueSearch, setValueSearch] = useState<string>("");
   const [albums, setAlbums] = useState<IAlbum[]>([]);
+  const [albumsCopy, setAlbumsCopy] = useState<IAlbum[]>([]);
   const [page, setPage] = useState<number>(1);
   const [stateBtnLeft, setStateBtnLeft] = useState<boolean>(true);
   const [stateBtnRight, setStateBtnRight] = useState<boolean>(false);
@@ -47,7 +49,7 @@ const Album: React.FC = () => {
     LoadAlbum();
     statePage();
   }, [page])
-
+  
   const statePage = () => {
     if (page === 1) {
       setStateBtnLeft(true)
@@ -66,35 +68,44 @@ const Album: React.FC = () => {
       .then(response => {
         setLoading(false);
         setAlbums(response.data);
+        setAlbumsCopy(response.data);
         setRefreshing(false);
       })
       .catch(error => {
         setLoading(false);
         setRefreshing(false);
-        console.log("error")
       })
   }, [page])
+
+
+  const renderItem: ListRenderItem<IAlbum> = ({ item }) => {
+    return (
+      <ContainerCards>
+        <BtnCards onPress={() => { 
+          setIdAlbum(item.id), 
+          setName(item.title), 
+          setModalGallery(true), 
+          setTimeout(() =>{ setStateModalLoading(true)}, 1000)
+        }}>
+          <Cards >
+            <TxtTitle>{item.title}</TxtTitle>
+          </Cards>
+        </BtnCards>
+      </ContainerCards>
+    )
+  }
 
   const _onRefresh = () => {
     setRefreshing(true);
     LoadAlbum();
   }
 
-  const renderItem: ListRenderItem<IAlbum> = ({ item }) => {
-    return (
-      <ContainerCards>
-        <BtnCards onPress={() => { setIdAlbum(item.id), setName(item.title), setModalGallery(true) }}>
-          <Cards />
-        </BtnCards>
+  const searchPost = (value: string) => {
+    const result = albumsCopy.filter(album => album.title.includes(value));
 
-        <TxtTitle>{item.title}</TxtTitle>
-      </ContainerCards>
-    )
+    setAlbums(result);
   }
 
-  const SearchPost = (value: string) => {
-
-  }
   return (
     <>
       <ModalGallery />
@@ -113,7 +124,7 @@ const Album: React.FC = () => {
 
           <SearchBarPost
             placeholder="Digite o título"
-            onChangeText={value => { setValueSearch(String(value)), SearchPost(value) }}
+            onChangeText={value => {setValueSearch(value), searchPost(value)}}
             value={valueSearch}
           />
 
@@ -137,13 +148,15 @@ const Album: React.FC = () => {
             </ViewPagination>
           }
 
-          <FlatList
-            data={albums}
-            keyExtractor={album => String(album.id)}
-            showsVerticalScrollIndicator={false}
-            numColumns={3}
-            renderItem={renderItem}
-          />
+          <SafeAreaView>
+            <FlatList
+              data={albums}
+              keyExtractor={album => String(album.id)}
+              showsVerticalScrollIndicator={false}
+              numColumns={1}
+              renderItem={renderItem}
+            />
+          </SafeAreaView>
         </ScroolView>
       </Container>
     </>
