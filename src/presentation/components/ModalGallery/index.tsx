@@ -29,10 +29,8 @@ import Loading from '../Loading';
 import { IPhoto } from '../../../data/protocols/ModalGallery';
 
 const ModalGallery: React.FC = () => {
-  const { modalGallery, setModalGallery, idAlbum, setIdAlbum, name } = useContext(ModalGalleryContext);
-  const [photos, setPhotos] = useState<IPhoto[]>([]);
-  const [stateLoading, setStateLoading] = useState<Boolean>(true);
-  const [stateModalLoading, setStateModalLoading] = useState<boolean>(false);
+  const { modalGallery, setModalGallery, idAlbum, setIdAlbum, name, setStateModalLoading, stateModalLoading } = useContext(ModalGalleryContext);
+  const [photos, setPhotos] = useState<IPhoto[] | null>(null);
 
   useEffect(() => {
     loadGallery();
@@ -67,15 +65,18 @@ const ModalGallery: React.FC = () => {
     )
   }
 
-  const renderItem: ListRenderItem<IPhoto> = ({ item }) => {
+  const renderItem: ListRenderItem<IPhoto> = ({ item, index }) => {
     return (
       <ContainerCards>
         <BtnImg>
           <Img
             source={{ uri: `${item.thumbnailUrl}` }}
-            onLoad={e => { setStateLoading(false), setStateModalLoading(false) }}
-            onLoadStart={() => { setStateLoading(true), setStateModalLoading(true) }}
-            onError={e => { setStateLoading(false), setStateModalLoading(false) }}
+            onLoad={e => { 
+              if(photos?.length === index+1){
+                setStateModalLoading(false)
+              }
+            }}
+            onError={e => { setStateModalLoading(false) }}
             resizeMode="stretch"
           >
           </Img>
@@ -93,7 +94,9 @@ const ModalGallery: React.FC = () => {
           transparent={true}
           visible={modalGallery}
           onRequestClose={() => {
-            setPhotos([]);
+            setTimeout(() => {
+              setPhotos(null);
+            }, 1000)
             setStateModalLoading(false);
             setModalGallery(false);
           }}
