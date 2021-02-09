@@ -24,16 +24,8 @@ import AuthContext from '../../../data/contexts/Auth';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState<String>("");
-  const { logIn, logOut, user, setStateBtn, stateBtn } = useContext(AuthContext);
+  const { verifyEmail, setStateBtn, stateBtn } = useContext(AuthContext);
 
-  const verifyEmail = () => {
-    if(email === ""){
-      setStateBtn(false)
-      Alert.alert("Vazio", "Campo de email vazio!")
-    } else {
-      logIn(email)
-    }
-  }
   return (
     <>
       <StatusBar backgroundColor={"#FFF"} />
@@ -69,7 +61,7 @@ const Login: React.FC = () => {
 
           <BtnLogin 
             disabled={stateBtn}
-            onPress={() => {setStateBtn(true), verifyEmail()}}>
+            onPress={() => {setStateBtn(true), verifyEmail(email)}}>
             <TxtBtn>{stateBtn ? <Loading  clr={2}/> : "ENTRAR"}</TxtBtn>
           </BtnLogin>
 
