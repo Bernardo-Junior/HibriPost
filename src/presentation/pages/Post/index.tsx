@@ -133,7 +133,7 @@ const Post: React.FC = () => {
     loadData();
   }
 
-  const SearchPost = (value: string) => {
+  const searchPost = (value: string) => {
     const result = copyPosts.filter(post => post.title.includes(value));
 
     setPosts(result);
@@ -171,7 +171,7 @@ const Post: React.FC = () => {
 
               <SearchBarPost
                 placeholder="Digite o título"
-                onChangeText={value => { setValueSearch(String(value)), SearchPost(value) }}
+                onChangeText={value => { setValueSearch(value), searchPost(value) }}
                 value={valueSearch}
               />
 
