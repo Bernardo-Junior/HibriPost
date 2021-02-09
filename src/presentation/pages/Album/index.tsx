@@ -49,7 +49,7 @@ const Album: React.FC = () => {
     LoadAlbum();
     statePage();
   }, [page])
-  
+
   const statePage = () => {
     if (page === 1) {
       setStateBtnLeft(true)
@@ -81,11 +81,11 @@ const Album: React.FC = () => {
   const renderItem: ListRenderItem<IAlbum> = ({ item }) => {
     return (
       <ContainerCards>
-        <BtnCards onPress={() => { 
-          setIdAlbum(item.id), 
-          setName(item.title), 
-          setModalGallery(true), 
-          setTimeout(() =>{ setStateModalLoading(true)}, 1000)
+        <BtnCards onPress={() => {
+          setIdAlbum(item.id),
+            setName(item.title),
+            setModalGallery(true),
+            setTimeout(() => { setStateModalLoading(true) }, 1000)
         }}>
           <Cards >
             <TxtTitle>{item.title}</TxtTitle>
@@ -124,7 +124,7 @@ const Album: React.FC = () => {
 
           <SearchBarPost
             placeholder="Digite o título"
-            onChangeText={value => {setValueSearch(value), searchPost(value)}}
+            onChangeText={value => { setValueSearch(value), searchPost(value) }}
             value={valueSearch}
           />
 
@@ -149,13 +149,24 @@ const Album: React.FC = () => {
           }
 
           <SafeAreaView>
-            <FlatList
-              data={albums}
-              keyExtractor={album => String(album.id)}
-              showsVerticalScrollIndicator={false}
-              numColumns={1}
-              renderItem={renderItem}
-            />
+            {
+              albums.map((item, index) => {
+                return (
+                  <ContainerCards key={index} >
+                    <BtnCards onPress={() => {
+                      setIdAlbum(item.id),
+                        setName(item.title),
+                        setModalGallery(true),
+                        setTimeout(() => { setStateModalLoading(true) }, 50)
+                    }}>
+                      <Cards>
+                        <TxtTitle>{item.title}</TxtTitle>
+                      </Cards>
+                    </BtnCards>
+                  </ContainerCards>
+                )
+              })
+            }
           </SafeAreaView>
         </ScroolView>
       </Container>
