@@ -19,6 +19,7 @@ import {
   TxtEmail,
   TxtName,
   TextBody,
+  ContainerError
 } from './styles';
 
 import { ListRenderItem } from 'react-native';
@@ -46,6 +47,7 @@ const ModalPost: React.FC = () => {
   useEffect(() => {
     setComments([]);
     loadComments();
+    setLoad(true);
   }, [post, stateModal])
 
   useEffect(() => {
@@ -57,11 +59,11 @@ const ModalPost: React.FC = () => {
 
   const loadComments = useCallback(() => {
     api.get(`/posts/${post?.id}/comments`)
-      .then(response => {
-          setLoad(false);
+      .then(response => {          
           setPressTry(0);
           setCon(false);
           setComments(response.data);
+          setLoad(false);
       })
       .catch(error => {
         setLoad(false);
@@ -118,11 +120,14 @@ const ModalPost: React.FC = () => {
             <TxtTitle>Comentários</TxtTitle>
             {
               con
-              ? <Error opt={2}/>
+              ? 
+              <ContainerError>
+                <Error opt={2}/>
+              </ContainerError>
               :
               load
               ?
-              <Loading />
+              <Loading clr={1} />
               : 
               <FlatList
                 data={comments}
