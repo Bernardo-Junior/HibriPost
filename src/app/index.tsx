@@ -19,6 +19,8 @@ import { ErroProvider } from '../data/contexts/Error';
 
 import { ModalGalleryProvider } from '../data/contexts/ModalGallery';
 
+import { PhotoProvider } from '../data/contexts/Photo';
+
 import Routes from '../infra/routes';
 
 const App: React.FC = () => {
@@ -33,17 +35,19 @@ const App: React.FC = () => {
   };
   return (
     <NavigationContainer>
-      <ModalGalleryProvider>
-        <ErroProvider>
-          <ModalPostProvider>
-            <AuthProvider>
-              <PaperProvider theme={theme}>
-                <Routes />
-              </PaperProvider>
-            </AuthProvider>
-          </ModalPostProvider>
-        </ErroProvider>
-      </ModalGalleryProvider>
+      <PhotoProvider>
+        <ModalGalleryProvider>
+          <ErroProvider>
+            <ModalPostProvider>
+              <AuthProvider>
+                <PaperProvider theme={theme}>
+                  <Routes />
+                </PaperProvider>
+              </AuthProvider>
+            </ModalPostProvider>
+          </ErroProvider>
+        </ModalGalleryProvider>
+      </PhotoProvider>
     </NavigationContainer>
   )
 }
