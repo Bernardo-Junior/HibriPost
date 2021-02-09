@@ -6,6 +6,7 @@ export interface IAuthContext {
   stateBtn: boolean;
   setStateBtn: Dispatch<SetStateAction<boolean>>;
   logIn(email: String): void;
+  verifyEmail(email: String): void;
   logOut(): void;
 }
 

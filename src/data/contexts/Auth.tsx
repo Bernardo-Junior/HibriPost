@@ -28,6 +28,21 @@ export const AuthProvider: React.FC = ({ children }) => {
       })
   }, [])
 
+  const verifyEmail = (email: String) => {
+    const emailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+    
+    if(!emailRegex.test(String(email))) {
+      setStateBtn(false)
+      Alert.alert("Email inválido", "Por favor digite um email válido.")
+    }
+    else if(email === ""){
+      setStateBtn(false)
+      Alert.alert("Vazio", "Campo de email vazio!")
+    } else {
+      logIn(email)
+    }
+  }
+
   const logIn = useCallback((email: String) => {
     api.get(`/users?email=${email}`)
       .then(async response => {
@@ -54,7 +69,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={{ signed: !!user, user, stateBtn, setStateBtn, logIn, logOut }}>
+    <AuthContext.Provider value={{ signed: !!user, user, stateBtn, setStateBtn, logIn, logOut, verifyEmail }}>
       {children}
     </AuthContext.Provider>
   )
