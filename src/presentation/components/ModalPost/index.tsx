@@ -40,7 +40,7 @@ const ModalPost: React.FC = () => {
   const { post, stateModal, setStateModal } = useContext(ModalPostContext);
   const [comments, setComments] = useState<IComment[]>([]);
   const [load, setLoad] = useState<Boolean>(true);
-  const [con, setCon] = useState<Boolean>(false);
+  const [con, setCon] = useState<Boolean>(true);
   const { pressTry, setPressTry } = useContext(ErrorContext);
 
 
