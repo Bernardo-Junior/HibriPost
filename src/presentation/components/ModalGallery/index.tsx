@@ -59,7 +59,7 @@ const ModalGallery: React.FC = () => {
       >
         <ContainerLoading>
           <TxtLoading>Carregando Imagens...</TxtLoading>
-          <Loading />
+          <Loading clr={1} />
         </ContainerLoading>
       </Modal>
     )

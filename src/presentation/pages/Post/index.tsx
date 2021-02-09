@@ -176,7 +176,7 @@ const Post: React.FC = () => {
               />
 
               {loading
-                ? <Loading />
+                ? <Loading  clr={1}/>
 
                 : <ViewPagination>
                   <TxtPage>{page} de 10</TxtPage>

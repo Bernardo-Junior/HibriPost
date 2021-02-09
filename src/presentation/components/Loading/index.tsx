@@ -5,9 +5,11 @@ import {
   View
 } from './styles';
 
-const Loading: React.FC = () => {
+import { ILoading } from '../../../data/protocols/Loading';
+
+const Loading: React.FC<ILoading> = (clr) => {
   return (
-    <ActivityIndicator size="large" color="#000000" />
+    <ActivityIndicator size="large" color={clr.clr !== 1 ? "#FFFFFF" : "#000000"} />
   )
 }
 
