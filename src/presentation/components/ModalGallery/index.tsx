@@ -30,9 +30,10 @@ import { IPhoto } from '../../../data/protocols/ModalGallery';
 
 const ModalGallery: React.FC = () => {
   const { modalGallery, setModalGallery, idAlbum, setIdAlbum, name, setStateModalLoading, stateModalLoading } = useContext(ModalGalleryContext);
-  const [photos, setPhotos] = useState<IPhoto[] | null>(null);
+  const [photos, setPhotos] = useState<IPhoto[]>([]);
 
   useEffect(() => {
+    setPhotos([])
     loadGallery();
   }, [idAlbum, modalGallery])
 
@@ -71,8 +72,8 @@ const ModalGallery: React.FC = () => {
         <BtnImg>
           <Img
             source={{ uri: `${item.thumbnailUrl}` }}
-            onLoad={e => { 
-              if(photos?.length === index+1){
+            onLoad={e => {
+              if (photos?.length === index + 1) {
                 setStateModalLoading(false)
               }
             }}
@@ -87,36 +88,33 @@ const ModalGallery: React.FC = () => {
 
   return (
     <>
-    {ModalLoading()}
+      {ModalLoading()}
       <Container>
         <Modal
           animationType="fade"
           transparent={true}
           visible={modalGallery}
           onRequestClose={() => {
-            setTimeout(() => {
-              setPhotos(null);
-            }, 1000)
             setStateModalLoading(false);
             setModalGallery(false);
           }}
         >
-          <ScroolView>
-            <ViewBack>
-              <BtnBack onPress={() => { setPhotos([]); setModalGallery(false) }}>
-                <IconBack name="arrow-left" size={35} />
-              </BtnBack>
-              <TxtTitleScreen>{name}</TxtTitleScreen>
-            </ViewBack>
+            <ScroolView>
+              <ViewBack>
+                <BtnBack onPress={() => { setPhotos([]); setModalGallery(false) }}>
+                  <IconBack name="arrow-left" size={35} />
+                </BtnBack>
+                <TxtTitleScreen>{name}</TxtTitleScreen>
+              </ViewBack>
 
-            <FlatList
-              data={photos}
-              keyExtractor={photo => String(photo.id)}
-              showsVerticalScrollIndicator={false}
-              numColumns={4}
-              renderItem={renderItem}
-            />
-          </ScroolView>
+              <FlatList
+                data={photos}
+                keyExtractor={photo => String(photo.id)}
+                showsVerticalScrollIndicator={false}
+                numColumns={4}
+                renderItem={renderItem}
+              />
+            </ScroolView>
         </Modal>
       </Container>
     </>
