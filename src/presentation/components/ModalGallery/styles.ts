@@ -5,7 +5,8 @@ import resp from '../../responsivity';
 import Feather from 'react-native-vector-icons/Feather';
 Feather.loadFont();
 
-import { Alert, FlatList, Modal, } from 'react-native';
+import { Alert, FlatList, Modal, ImageProps } from 'react-native';
+
 
 export const Container = styled.View`
   position: absolute;
@@ -28,8 +29,7 @@ export { Alert, FlatList, Modal };
 
 export const BtnCards = styled.TouchableOpacity``;
 
-export const Img = styled.Image`
-  margin-top: ${resp(20)}px;
+export const Img = styled.Image<ImageProps>`
   width: ${resp(100)}px;
   height: ${resp(100)}px;
 `;
@@ -61,4 +61,17 @@ export const BtnBack = styled.TouchableOpacity``;
 
 export const ViewBack = styled.View`
   padding: ${resp(20)}px;
+`;
+
+export const ContainerLoading = styled.View`
+  flex: 1;
+  background-color: 'rgba(50,0,0,0.1)';
+  justify-content: center;
+  align-items: center;
+`;
+
+export const TxtLoading = styled.Text`
+  font-family: OpenSansBold;
+  font-size: ${resp(20)}px;
+  margin-bottom: ${resp(20)}px;
 `;
