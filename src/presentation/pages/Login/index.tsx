@@ -17,12 +17,15 @@ import {
   Alert
 } from './styles';
 
+import Loading from '../../components/Loading';
+
 
 import AuthContext from '../../../data/contexts/Auth';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState<String>("");
   const { logIn, logOut } = useContext(AuthContext);
+  const [stateLogin, setStateLogin] = useState<Boolean>(false);
 
   const verifyEmail = () => {
     if(email === ""){
@@ -64,8 +67,8 @@ const Login: React.FC = () => {
             autoCapitalize="none"
           />
 
-          <BtnLogin onPress={() => {verifyEmail()}}>
-            <TxtBtn>ENTRAR</TxtBtn>
+          <BtnLogin onPress={() => {setStateLogin(true), verifyEmail()}}>
+            <TxtBtn>{stateLogin ? <Loading  clr={2}/> : "ENTRAR"}</TxtBtn>
           </BtnLogin>
 
         </Body>
