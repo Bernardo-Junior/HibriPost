@@ -7,6 +7,8 @@ export interface IModaGalleryContext {
   setIdAlbum: Dispatch<SetStateAction<Number | null>>;
   name: String;
   setName: Dispatch<SetStateAction<String>>;
+  stateModalLoading: boolean;
+  setStateModalLoading: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface IPhoto {
