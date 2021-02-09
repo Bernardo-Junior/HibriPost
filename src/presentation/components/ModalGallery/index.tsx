@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useCallback, useState } from 'react';
 
 import ModalGalleryContext from '../../../data/contexts/ModalGallery';
 
+import PhotoContext from '../../../data/contexts/Photo';
+
 import {
   Container,
   Modal,
@@ -20,6 +22,8 @@ import {
   TxtLoading
 } from './styles';
 
+import Gallery from '../Gallery';
+
 import api from '../../../infra/services/api';
 
 import { Alert, ListRenderItem } from 'react-native';
@@ -29,8 +33,17 @@ import Loading from '../Loading';
 import { IPhoto } from '../../../data/protocols/ModalGallery';
 
 const ModalGallery: React.FC = () => {
-  const { modalGallery, setModalGallery, idAlbum, setIdAlbum, name, setStateModalLoading, stateModalLoading } = useContext(ModalGalleryContext);
-  const [photos, setPhotos] = useState<IPhoto[]>([]);
+  const { 
+    modalGallery, 
+    setModalGallery, 
+    idAlbum, 
+    setIdAlbum, 
+    name, 
+    setStateModalLoading, 
+    stateModalLoading 
+  } = useContext(ModalGalleryContext);
+  
+  const { setPage, photos, setPhotos, setModalPictures } = useContext(PhotoContext);
 
   useEffect(() => {
     setPhotos([])
@@ -69,7 +82,7 @@ const ModalGallery: React.FC = () => {
   const renderItem: ListRenderItem<IPhoto> = ({ item, index }) => {
     return (
       <ContainerCards>
-        <BtnImg>
+        <BtnImg onPress={() => {  setPage(index), setModalPictures(true)}}>
           <Img
             source={{ uri: `${item.thumbnailUrl}` }}
             onLoad={e => {
@@ -89,6 +102,7 @@ const ModalGallery: React.FC = () => {
   return (
     <>
       {ModalLoading()}
+      <Gallery />
       <Container>
         <Modal
           animationType="fade"
