@@ -1,6 +1,10 @@
+import {  Dispatch, SetStateAction } from 'react';
+
 export interface IAuthContext {
   signed: Boolean;
   user: IUser[] | null;
+  stateBtn: boolean;
+  setStateBtn: Dispatch<SetStateAction<boolean>>;
   logIn(email: String): void;
   logOut(): void;
 }

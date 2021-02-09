@@ -15,6 +15,7 @@ const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
 export const AuthProvider: React.FC = ({ children }) => {
   const [user, setUser] = useState<IUser[] | null>(null);
+  const [stateBtn, setStateBtn] = useState<boolean>(false);
 
   useEffect(() => {
     AsyncStorage.getItem('@HibriPost:user')
@@ -31,16 +32,18 @@ export const AuthProvider: React.FC = ({ children }) => {
     api.get(`/users?email=${email}`)
       .then(async response => {
         if(response.headers['content-length'] === undefined) {
-          console.log(response.data);
+          setStateBtn(false);
           setUser(response.data);
 
           await AsyncStorage.setItem('@HibriPost:user', JSON.stringify(response.data));
         }
         else {
+          setStateBtn(false);
           Alert.alert("Erro", "Email não cadastrado :(")
         }
       })
       .catch(error => {
+        setStateBtn(false);
         Alert.alert("Erro", "Erro de conexão, verifique sua conexão com a internet :)" );
       })
   }, []);
@@ -51,7 +54,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={{ signed: !!user, user, logIn, logOut }}>
+    <AuthContext.Provider value={{ signed: !!user, user, stateBtn, setStateBtn, logIn, logOut }}>
       {children}
     </AuthContext.Provider>
   )
