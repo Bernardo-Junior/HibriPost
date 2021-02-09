@@ -71,19 +71,4 @@ export const TxtInfoLink = styled(TxtInfo)`
 
 export const BtnLink = styled.TouchableOpacity``;
 
-export const BtnLogOut = styled.TouchableOpacity`
-  width: ${resp(200)}px;
-  height: ${resp(50)}px;
-  background-color: #D9485C;
-  align-self: center;
-  margin-top: ${resp(40)}px;
-  justify-content: center;
-  align-items: center;
-  border-radius: ${resp(10)}px;
-`;
-export const TxtLogOut = styled.Text`
-  color: #FFFFFF;
-  font-family: OpenSansBold;
-  font-size: ${resp(18)}px;
-`;
 

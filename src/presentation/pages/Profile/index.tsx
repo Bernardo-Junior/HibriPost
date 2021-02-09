@@ -19,8 +19,6 @@ import {
   TxtInfoLink,
   BtnLink,
   Alert,
-  BtnLogOut,
-  TxtLogOut
 } from './styles';
 
 import AuthContext from '../../../data/contexts/Auth';
@@ -115,9 +113,6 @@ const Profile: React.FC = () => {
             <TxtTitleInfo>BS</TxtTitleInfo>
             <TxtInfo>{user?.[0].company.bs}</TxtInfo>
 
-            <BtnLogOut onPress={() => {logOut()}}>
-              <TxtLogOut>Sair</TxtLogOut>
-            </BtnLogOut>
           </ViewInfo>
         </ScroolView>
       </Container>
