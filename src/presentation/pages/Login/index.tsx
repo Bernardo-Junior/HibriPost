@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 
 import {
   Container,
@@ -24,11 +24,11 @@ import AuthContext from '../../../data/contexts/Auth';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState<String>("");
-  const { logIn, logOut } = useContext(AuthContext);
-  const [stateLogin, setStateLogin] = useState<Boolean>(false);
+  const { logIn, logOut, user, setStateBtn, stateBtn } = useContext(AuthContext);
 
   const verifyEmail = () => {
     if(email === ""){
+      setStateBtn(false)
       Alert.alert("Vazio", "Campo de email vazio!")
     } else {
       logIn(email)
@@ -67,8 +67,10 @@ const Login: React.FC = () => {
             autoCapitalize="none"
           />
 
-          <BtnLogin onPress={() => {setStateLogin(true), verifyEmail()}}>
-            <TxtBtn>{stateLogin ? <Loading  clr={2}/> : "ENTRAR"}</TxtBtn>
+          <BtnLogin 
+            disabled={stateBtn}
+            onPress={() => {setStateBtn(true), verifyEmail()}}>
+            <TxtBtn>{stateBtn ? <Loading  clr={2}/> : "ENTRAR"}</TxtBtn>
           </BtnLogin>
 
         </Body>
