@@ -14,7 +14,6 @@ import {
   BtnImg,
   ScroolView,
   TxtTitle,
-  ContainerCards,
   BtnBack,
   IconBack,
   ViewBack,
@@ -34,6 +33,7 @@ import Loading from '../Loading';
 import { IPhoto } from '../../../data/protocols/ModalGallery';
 
 const ModalGallery: React.FC = () => {
+  const numColumns = 3;
   const {
     modalGallery,
     setModalGallery,
@@ -50,6 +50,7 @@ const ModalGallery: React.FC = () => {
     setPhotos([])
     loadGallery();
   }, [idAlbum, modalGallery])
+
 
   const loadGallery = useCallback(() => {
     api.get(`/photos?albumId=${idAlbum}`)
@@ -79,15 +80,18 @@ const ModalGallery: React.FC = () => {
       </Modal>
     )
   }
+  
 
   const renderItem: ListRenderItem<IPhoto> = ({ item, index }) => {
     return (
-      <ContainerCards>
+      item.title !== "empty"
+      ?
+      (
         <BtnImg onPress={() => { setPage(index), setModalPictures(true) }}>
           <Img
             source={{ uri: `${item.thumbnailUrl}` }}
             onLoad={e => {
-              if (photos?.length === index + 1) {
+              if (photos[index+1].title === "empty") {
                 setStateModalLoading(false)
               }
             }}
@@ -95,9 +99,35 @@ const ModalGallery: React.FC = () => {
             resizeMode="stretch"
           >
           </Img>
+        </BtnImg>   
+      )
+      : (
+        <BtnImg >
         </BtnImg>
-      </ContainerCards>
+      )
+      
     )
+  }
+
+
+
+  const formatData = (data: IPhoto[], columns: number) => {
+    const rows = Math.floor(data.length / columns);
+
+    let lastRowElements = data.length - rows * columns;
+    while(lastRowElements !== columns) {
+      data.push({
+        albumId: (lastRowElements + (Math.random() * (9999 - 1) + 1)),
+        id: (lastRowElements + (Math.random() * (9999 - 1) + 1)),
+        thumbnailUrl: `empty-${lastRowElements}`,
+        title: "empty",
+        url: `empty-${lastRowElements}`
+      })
+
+      lastRowElements += 1;
+    }
+
+    return data;
   }
 
   return (
@@ -124,10 +154,10 @@ const ModalGallery: React.FC = () => {
 
             <ViewFlatlist>
               <FlatList
-                data={photos}
+                data={formatData(photos, numColumns)}
                 keyExtractor={photo => String(photo.id)}
                 showsVerticalScrollIndicator={false}
-                numColumns={3}
+                numColumns={numColumns}
                 renderItem={renderItem}
               />
             </ViewFlatlist>

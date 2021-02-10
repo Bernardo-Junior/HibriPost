@@ -40,7 +40,11 @@ export const ViewFlatlist = styled.View`
   align-self: center;
 `;
 
-export const BtnImg = styled.TouchableOpacity``;
+export const BtnImg = styled.TouchableOpacity`
+  flex-grow: 1;
+  flex-basis: 0;
+  height: auto;
+`;
 
 export const ScroolView = styled.ScrollView`
   flex: 1;
@@ -52,13 +56,6 @@ export const TxtTitle = styled.Text`
   font-family: OpenSansBold;
   text-align: left;
   color: #D9485C;
-`;
-
-export const ContainerCards = styled.View`
-  flex: 1;
-  align-items: center;
-  flexBasis: 0;
-  margin-bottom: ${resp(4)}px;
 `;
 
 export const IconBack = styled(Feather)`
