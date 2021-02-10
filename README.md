@@ -4,7 +4,7 @@
 <h1 >
 <img 
   align="center" 
-  src="https://raw.githubusercontent.com/Bernardo-Junior/HibriPost/main/android/app/src/main/res/drawable-xxxhdpi/icon.png?token=AI7UMIM7ZPYLMZWKUAVIRWLAEQYJ2" 
+  src="https://github.com/Bernardo-Junior/HibriPost/blob/main/android/app/src/main/res/drawable/icon.png" 
   width="100px;" 
   alt="exemplo imagem"
  />
@@ -14,7 +14,7 @@
  <img 
   align="center" 
   src="https://github.com/Bernardo-Junior/HibriPost/blob/main/android/app/src/main/res/drawable/launch_screen.png" 
-  width="100px;" 
+  width="200px;" 
   alt="exemplo imagem"
  />
 </h1>
