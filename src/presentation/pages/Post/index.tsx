@@ -20,6 +20,8 @@ import AuthContext from '../../../data/contexts/Auth';
 
 import ModalPost from '../../components/ModalPost';
 
+import { statePage } from '../../../utils/statePagination';
+
 import {
   StatusBar,
   ViewHeader,
@@ -63,28 +65,15 @@ const Post: React.FC = () => {
 
   useEffect(() => {
     loadData();
-    statePage();
+    statePage({page, setStateBtnLeft, setStateBtnRight});
   }, [page])
 
   useEffect(() => {
     if (pressTry === 1) {
       loadData();
-      statePage();
+      statePage({page, setStateBtnLeft, setStateBtnRight});
     }
   }, [pressTry])
-
-  const statePage = () => {
-    if (page === 1) {
-      setStateBtnLeft(true)
-    }
-    else if (page === 10) {
-      setStateBtnRight(true);
-    }
-    else {
-      setStateBtnLeft(false);
-      setStateBtnRight(false);
-    }
-  }
 
   const loadData = useCallback(() => {
     api.get(`/posts?userId=${page}`)

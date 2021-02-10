@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useCallback } from 'react';
+import React, { useState, useEffect, useContext, useCallback, Dispatch, SetStateAction } from 'react';
 
 import Header from '../../components/Header';
 
@@ -29,11 +29,13 @@ import Loading from '../../components/Loading';
 
 import Error from '../../components/Error';
 
-import { IAlbum } from '../../../data/protocols/Album';
+import { IAlbum, IStatePage } from '../../../data/protocols/Album';
 
 import ErrorContext from '../../../data/contexts/Error';
 
 import api from '../../../infra/services/api';
+
+import { statePage } from '../../../utils/statePagination';
 
 const Album: React.FC = () => {
   const { modalGallery, setModalGallery, setIdAlbum, setName, setStateModalLoading } = useContext(ModaGalleryContext);
@@ -50,28 +52,17 @@ const Album: React.FC = () => {
 
   useEffect(() => {
     LoadAlbum();
-    statePage();
+    statePage({page, setStateBtnLeft, setStateBtnRight});
   }, [page])
 
   useEffect(() => {
     if (pressTry === 3) {
       LoadAlbum();
-      statePage();
+      statePage({page, setStateBtnLeft, setStateBtnRight});
     }
   }, [pressTry])
 
-  const statePage = () => {
-    if (page === 1) {
-      setStateBtnLeft(true)
-    }
-    else if (page === 10) {
-      setStateBtnRight(true);
-    }
-    else {
-      setStateBtnLeft(false);
-      setStateBtnRight(false);
-    }
-  }
+  
 
   const LoadAlbum = useCallback(() => {
     api.get(`/albums?userId=${page}`)
