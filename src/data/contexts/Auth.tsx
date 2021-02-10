@@ -1,5 +1,7 @@
 import React, { useEffect, createContext, useState, useCallback } from 'react';
 
+import SplashScreen from 'react-native-splash-screen'
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { Alert } from 'react-native';
@@ -26,6 +28,8 @@ export const AuthProvider: React.FC = ({ children }) => {
       .catch(error => {
         Alert.alert("Ocorreu um erro ao carregar seus dados", error);
       })
+
+      setTimeout(() => { SplashScreen.hide(); }, 100)
   }, [])
 
   const verifyEmail = (email: String) => {
