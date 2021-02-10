@@ -65,7 +65,7 @@ Foi feito um estudo do problema proposto através do e-mail, e estudado as rotas
         As telas foram protótipadas primeiramente em folha de papel, descrevendo o local de cada componente em tela de forma organizada e harmônica.
 	    Depois, passadas para o Figma para se ter uma visualização mais nítida e fazer as correções necessárias.
 <h2>3 – Desenvolvimento</h2>
-O aplicativo foi desenvolvido usando React Native, com Typescript focado na organização das informações e Styled Components para a estilização e a arquitetura Domain-Drive Design para a organização da estrutura do código.
+O aplicativo foi desenvolvido usando React Native, com Typescript para a organização das informações, Styled Components para a estilização e a arquitetura Domain-Drive Design para a organização da estrutura do código.
 
 ---
 
