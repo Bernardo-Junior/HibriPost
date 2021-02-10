@@ -2,7 +2,7 @@
     <tittle>HibriPOST</tittle>
 <h1 >
     
-<h1 align="center" flex-direction="row">
+<h1 align="center" flex-direction="row"
 <img 
   align="center" 
   src="https://github.com/Bernardo-Junior/HibriPost/blob/main/android/app/src/main/res/drawable/icon.png" 
