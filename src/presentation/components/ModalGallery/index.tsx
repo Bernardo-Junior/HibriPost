@@ -19,7 +19,8 @@ import {
   IconBack,
   ViewBack,
   ContainerLoading,
-  TxtLoading
+  TxtLoading,
+  ViewFlatlist
 } from './styles';
 
 import Gallery from '../Gallery';
@@ -121,13 +122,15 @@ const ModalGallery: React.FC = () => {
                 <TxtTitleScreen>{name}</TxtTitleScreen>
               </ViewBack>
 
+            <ViewFlatlist>
               <FlatList
                 data={photos}
                 keyExtractor={photo => String(photo.id)}
                 showsVerticalScrollIndicator={false}
-                numColumns={4}
+                numColumns={3}
                 renderItem={renderItem}
               />
+            </ViewFlatlist>
             </ScroolView>
         </Modal>
       </Container>
