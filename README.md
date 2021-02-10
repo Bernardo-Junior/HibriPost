@@ -56,8 +56,10 @@ Foi feito um estudo do problema proposto através do e-mail, e estudado as rotas
 <h2>2 – Prototipação</h2>
     <h3>2.1 – Etapas</h3>
         <h4>2.1.1 – Cores </h3>
-        As cores foram definidas de acordo com as usadas no site  https://www.hibrido.com.br/sobre-nos/, que foram: </br> 
+        As cores foram definidas de acordo com as usadas no site  https://www.hibrido.com.br/sobre-nos/, que foram: 
+	</br> 
             •	#16394D
+	</br> 
             •	#D9485C
         <h4>2.1.2 – Interface do Usuário</h4>
         As telas foram protótipadas primeiramente em folha de papel, descrevendo o local de cada componente em tela de forma organizada e harmônica.
