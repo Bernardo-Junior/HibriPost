@@ -7,14 +7,17 @@
   src="https://raw.githubusercontent.com/Bernardo-Junior/HibriPost/main/android/app/src/main/res/drawable-xxxhdpi/icon.png?token=AI7UMIM7ZPYLMZWKUAVIRWLAEQYJ2" 
   width="100px;" 
   alt="exemplo imagem"
- > 
- 
+ />
+</h1>
+    
+<h1> 
  <img 
   align="center" 
   src="https://github.com/Bernardo-Junior/HibriPost/blob/main/android/app/src/main/res/drawable/launch_screen.png" 
   width="100px;" 
   alt="exemplo imagem"
- > 
+ />
+</h1>
 
 ## 💬️ Sobre o projeto
 
