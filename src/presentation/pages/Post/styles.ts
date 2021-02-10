@@ -65,7 +65,7 @@ export const ScroolView = styled.ScrollView``;
 export const SafeAreaView = styled.SafeAreaView``;
 
 export const TxtTitleCard = styled.Text`
-  color: #D9485C;
+  color: #16394D;
   font-family: OpenSansBold;
   font-size: ${resp(18)}px;
   width: ${resp(300)}px;
@@ -94,7 +94,7 @@ export const BtnMore = styled.TouchableOpacity`
 `;
 
 export const IconArrow = styled(Feather)`
-  color: #16394D;
+  color: #D9485C;
 `;
 
 export const ViewPagination = styled.View`
