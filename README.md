@@ -49,6 +49,9 @@ Ferramentas utilizadas nesse projeto:
 
 ---
 
+## 🎯 Processo de Desenvolvimento
+
+
 ## 🗂 Como baixar e rodar o projeto
 
 ```bash
