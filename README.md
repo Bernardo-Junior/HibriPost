@@ -56,7 +56,7 @@ Foi feito um estudo do problema proposto através do e-mail, e estudado as rotas
 <h2>2 – Prototipação</h2>
     <h3>2.1 – Etapas</h3>
         <h4>2.1.1 – Cores </h3>
-        As cores foram definidas de acordo com as usadas no site  https://www.hibrido.com.br/sobre-nos/, que fora: 
+        As cores foram definidas de acordo com as usadas no site  https://www.hibrido.com.br/sobre-nos/, que foram: </br> 
             •	#16394D
             •	#D9485C
         <h4>2.1.2 – Interface do Usuário</h4>
