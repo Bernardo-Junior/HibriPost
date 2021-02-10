@@ -31,20 +31,19 @@ export const ContainerCards = styled.View`
   align-items: center;
 `;
 
-export const BtnCards = styled.TouchableOpacity``;
-
-export const Cards = styled.View`
-  margin-top: ${resp(5)}px;
+export const BtnCards = styled.TouchableOpacity`
+margin-top: ${resp(5)}px;
   margin-bottom: ${resp(20)}px;
   width: ${resp(350)}px;
   height: ${resp(100)}px;
   background-color: #FFFFFF;
   justify-content: center;
-  elevation: 5;
   font-family: OpenSansBold;
   border-radius: ${resp(12)}px;
   align-items: center;
+  elevation: 5;
 `;
+
 
 export const SafeAreaView = styled.SafeAreaView``;
 
@@ -55,7 +54,7 @@ export const TxtTitle = styled.Text`
   font-family: OpenSansBold;
   text-align: center;
   font-size: ${resp(16)}px;
-  color: #D9485C;
+  color: #16394D;
 `;
 
 export const ViewPagination = styled.View`
