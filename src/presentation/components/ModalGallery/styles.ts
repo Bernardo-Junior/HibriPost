@@ -15,23 +15,29 @@ export const Container = styled.View`
 `;
 
 export const TxtTitleScreen = styled.Text`
-  align-self: center;
   font-size: ${resp(20)}px;
   font-family: OpenSansBold;
   color: #D9485C;
   align-self: flex-start;
   width: ${resp(350)}px;
   margin-top: ${resp(15)}px;
+  margin-bottom: ${resp(35)}px;
 `;
 
 export { Alert, FlatList, Modal };
 
 
-export const BtnCards = styled.TouchableOpacity``;
+export const BtnCards = styled.TouchableOpacity`
+`;
 
 export const Img = styled.Image<ImageProps>`
-  width: ${resp(100)}px;
-  height: ${resp(100)}px;
+  width: ${resp(129)}px;
+  height: ${resp(127)}px;
+`;
+
+export const ViewFlatlist = styled.View`
+  width: ${resp(400)}px;
+  align-self: center;
 `;
 
 export const BtnImg = styled.TouchableOpacity``;
@@ -51,6 +57,8 @@ export const TxtTitle = styled.Text`
 export const ContainerCards = styled.View`
   flex: 1;
   align-items: center;
+  flexBasis: 0;
+  margin-bottom: ${resp(4)}px;
 `;
 
 export const IconBack = styled(Feather)`
