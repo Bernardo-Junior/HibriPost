@@ -44,6 +44,7 @@ export const BtnImg = styled.TouchableOpacity`
   flex-grow: 1;
   flex-basis: 0;
   height: auto;
+  margin: ${resp(2)}px;
 `;
 
 export const ScroolView = styled.ScrollView`
