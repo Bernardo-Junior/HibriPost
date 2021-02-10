@@ -51,6 +51,21 @@ Ferramentas utilizadas nesse projeto:
 
 ## 🎯 Processo de Desenvolvimento
 
+<h2>1 – Analise e entendimento do problema.</h2>
+Foi feito um estudo do problema proposto através do e-mail, e estudado as rotas no qual poderia ser acessada pelo site “https://jsonplaceholder.typicode.com/”. 
+<h2>2 – Prototipação</h2>
+    <h3>2.1 – Etapas</h3>
+        <h4>2.1.1 – Cores </h3>
+        As cores foram definidas de acordo com as usadas no site  https://www.hibrido.com.br/sobre-nos/, que fora: 
+            •	#16394D
+            •	#D9485C
+        <h4>2.1.2 – Interface do Usuário</h4>
+        As telas foram protótipadas primeiramente em folha de papel, descrevendo o local de cada componente em tela de forma organizada e harmônica.
+	    Depois, passadas para o Figma para se ter uma visualização mais nítida e fazer as correções necessárias.
+<h2>3 – Desenvolvimento</h2>
+O aplicativo foi desenvolvido usando React Native, com Typescript focado na organização das informações e Styled Components para a estilização e a arquitetura Domain-Drive Design para a organização da estrutura do código.
+
+---
 
 ## 🗂 Como baixar e rodar o projeto
 
