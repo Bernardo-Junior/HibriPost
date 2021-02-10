@@ -49,6 +49,22 @@ Ferramentas utilizadas nesse projeto:
 
 ---
 
+## 🗂 Como baixar e rodar o projeto
+
+```bash
+    # Clone o repositório no github
+    $ https://github.com/Bernardo-Junior/HibriPost.git
+    
+    # Entre no diretório "HibriPost"
+    $ cd HibriPost
+    
+    # Rode um yarn para instalar as dependências do projeto
+    $ yarn install
+
+    # De um start na aplicação
+    $ npx react-native run-android ou react-native run-android ou yarn start
+```
+---
 
 ## 🤝 Colaboradores
 
