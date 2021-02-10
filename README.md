@@ -2,21 +2,23 @@
     <tittle>HibriPOST</tittle>
 <h1 >
     
-<h1 align="center" flex-direction="row">
+<div align="center">
 <img 
   align="center" 
   src="https://github.com/Bernardo-Junior/HibriPost/blob/main/android/app/src/main/res/drawable/icon.png" 
   width="100px;" 
   alt="exemplo imagem"
  />   
+</div>
 
+<div align="center">
  <img 
   align="center" 
   src="https://github.com/Bernardo-Junior/HibriPost/blob/main/android/app/src/main/res/drawable/launch_screen.png" 
   width="200px;" 
   alt="exemplo imagem"
  />
-</h1>
+</div>
 
 ## 💬️ Sobre o projeto
 
