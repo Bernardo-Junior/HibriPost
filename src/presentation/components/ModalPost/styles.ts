@@ -53,7 +53,7 @@ export const TxtInfocard = styled.Text`
   margin-top: ${resp(15)}px;
 `;
 
-export {Alert, FlatList, Modal};
+export { Alert, FlatList, Modal };
 
 export const TxtTitle = styled.Text`
   font-family: OpenSansBold;

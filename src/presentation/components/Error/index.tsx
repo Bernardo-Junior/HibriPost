@@ -17,17 +17,17 @@ const Error: React.FC<Props> = (props) => {
   const { setPressTry, pressTry } = useContext(ErrorContext);
   return (
     <Container>
-        <CircleViewIcon>
-          <IconSignal name="priority-high" size={100} />
-        </CircleViewIcon>
+      <CircleViewIcon>
+        <IconSignal name="priority-high" size={100} />
+      </CircleViewIcon>
 
-        <TxtError>
-          Erro de conexão
+      <TxtError>
+        Erro de conexão
         </TxtError>
 
-        <BtnTry onPress={() => {setPressTry(props.opt)}}>
-          <TxtTry>Tentar Novamente</TxtTry>
-        </BtnTry>
+      <BtnTry onPress={() => { setPressTry(props.opt) }}>
+        <TxtTry>Tentar Novamente</TxtTry>
+      </BtnTry>
     </Container>
   )
 }

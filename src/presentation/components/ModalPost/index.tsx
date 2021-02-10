@@ -51,7 +51,7 @@ const ModalPost: React.FC = () => {
   }, [post, stateModal])
 
   useEffect(() => {
-    if(pressTry === 2) {
+    if (pressTry === 2) {
       setComments([]);
       loadComments();
     }
@@ -59,11 +59,11 @@ const ModalPost: React.FC = () => {
 
   const loadComments = useCallback(() => {
     api.get(`/posts/${post?.id}/comments`)
-      .then(response => {          
-          setPressTry(0);
-          setCon(false);
-          setComments(response.data);
-          setLoad(false);
+      .then(response => {
+        setPressTry(0);
+        setCon(false);
+        setComments(response.data);
+        setLoad(false);
       })
       .catch(error => {
         setLoad(false);
@@ -104,40 +104,40 @@ const ModalPost: React.FC = () => {
         }}
       >
         <ScroolView>
-            <BtnBack onPress={() => { setLoad(true);  setStateModal(false);}}>
-              <IconBack name="arrow-left" size={35} />
-            </BtnBack>
+          <BtnBack onPress={() => { setLoad(true); setStateModal(false); }}>
+            <IconBack name="arrow-left" size={35} />
+          </BtnBack>
 
-            <Card>
-              <TxtTitleCard>
-                {post?.title}
-              </TxtTitleCard>
+          <Card>
+            <TxtTitleCard>
+              {post?.title}
+            </TxtTitleCard>
 
-              <TxtInfocard>
-                {post?.body}
-              </TxtInfocard>
-            </Card>
-            <TxtTitle>Comentários</TxtTitle>
-            {
-              con
-              ? 
+            <TxtInfocard>
+              {post?.body}
+            </TxtInfocard>
+          </Card>
+          <TxtTitle>Comentários</TxtTitle>
+          {
+            con
+              ?
               <ContainerError>
-                <Error opt={2}/>
+                <Error opt={2} />
               </ContainerError>
               :
               load
-              ?
-              <Loading clr={1} />
-              : 
-              <FlatList
-                data={comments}
-                keyExtractor={comment => String(comment.id)}
-                showsVerticalScrollIndicator={false}
-                numColumns={1}
-                renderItem={renderItem}
-              />
-            }
-          </ScroolView>
+                ?
+                <Loading clr={1} />
+                :
+                <FlatList
+                  data={comments}
+                  keyExtractor={comment => String(comment.id)}
+                  showsVerticalScrollIndicator={false}
+                  numColumns={1}
+                  renderItem={renderItem}
+                />
+          }
+        </ScroolView>
       </Modal>
     </Container>
   )

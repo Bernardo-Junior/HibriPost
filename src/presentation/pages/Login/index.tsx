@@ -41,31 +41,31 @@ const Login: React.FC = () => {
             </TxtHeader>
           </Header>
           <Body>
-          <TxtWelcome>
-            Bem Vindo!
+            <TxtWelcome>
+              Bem Vindo!
           </TxtWelcome>
 
-          <TxtDescrition>Por favor insira seu email para continuar</TxtDescrition>
+            <TxtDescrition>Por favor insira seu email para continuar</TxtDescrition>
 
-          <InputEmail
-            mode='outlined'
-            label="Email"
-            placeholder="example@example.com"
-            value={String(email)}
-            onChangeText={value => setEmail(value)}
-            autoCompleteType="name"
-            underlineColor={'#000000'}
-            placeholderTextColor={'rgba(0, 0, 0, 0.54)'}
-            autoCapitalize="none"
-          />
+            <InputEmail
+              mode='outlined'
+              label="Email"
+              placeholder="example@example.com"
+              value={String(email)}
+              onChangeText={value => setEmail(value)}
+              autoCompleteType="name"
+              underlineColor={'#000000'}
+              placeholderTextColor={'rgba(0, 0, 0, 0.54)'}
+              autoCapitalize="none"
+            />
 
-          <BtnLogin 
-            disabled={stateBtn}
-            onPress={() => {setStateBtn(true), verifyEmail(email)}}>
-            <TxtBtn>{stateBtn ? <Loading  clr={2}/> : "ENTRAR"}</TxtBtn>
-          </BtnLogin>
+            <BtnLogin
+              disabled={stateBtn}
+              onPress={() => { setStateBtn(true), verifyEmail(email) }}>
+              <TxtBtn>{stateBtn ? <Loading clr={2} /> : "ENTRAR"}</TxtBtn>
+            </BtnLogin>
 
-        </Body>
+          </Body>
         </ScrollView>
       </Container>
     </>

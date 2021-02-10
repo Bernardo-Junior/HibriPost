@@ -15,7 +15,7 @@ export const Container = styled.View`
   background-color: #FFFFFF;
 `;
 
-export {Alert};
+export { Alert };
 
 export const Body = styled.View`
   flex: 1;
@@ -69,7 +69,7 @@ export const TxtDescrition = styled.Text`
   width: ${resp(350)}px;
 `;
 
-export const InputEmail = styled(TextInput)<TextInputProps>`
+export const InputEmail = styled(TextInput) <TextInputProps>`
   width: ${resp(350)}px;
   border-radius: ${resp(25)}px;
   align-self: center;

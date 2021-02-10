@@ -144,7 +144,7 @@ const Post: React.FC = () => {
   return (
     <>
       <ModalPost />
-      <StatusBar backgroundColor={"#E5E5E5"} barStyle="dark-content"/>
+      <StatusBar backgroundColor={"#E5E5E5"} barStyle="dark-content" />
       <Container>
         {con
           ?
@@ -163,7 +163,7 @@ const Post: React.FC = () => {
                   <Header />
                 </ViewIconHeader>
                 <ViewIconExit>
-                  <BtnExit onPress={() => {logOut()}}>
+                  <BtnExit onPress={() => { logOut() }}>
                     <IconExit name="log-out" size={30} />
                   </BtnExit>
                 </ViewIconExit>
@@ -176,7 +176,7 @@ const Post: React.FC = () => {
               />
 
               {loading
-                ? <Loading  clr={1}/>
+                ? <Loading clr={1} />
 
                 : <ViewPagination>
                   <TxtPage>{page} de 10</TxtPage>

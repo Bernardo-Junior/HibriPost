@@ -25,7 +25,7 @@ import AuthContext from '../../../data/contexts/Auth';
 
 const Profile: React.FC = () => {
   const { user, logOut } = useContext(AuthContext);
-  
+
   const handlePress = useCallback(async () => {
     const supported = await Linking.canOpenURL(`http://${user?.[0].website}`);
 
@@ -90,12 +90,12 @@ const Profile: React.FC = () => {
 
 
             <ViewTitle>
-              <ImgIcon source={iconWeb} resizeMode="stretch"/>
-                <TxtTitle>Website</TxtTitle>
+              <ImgIcon source={iconWeb} resizeMode="stretch" />
+              <TxtTitle>Website</TxtTitle>
             </ViewTitle>
 
             <TxtTitleInfo>Link</TxtTitleInfo>
-            <BtnLink onPress={() => {handlePress()}}>
+            <BtnLink onPress={() => { handlePress() }}>
               <TxtInfoLink>{user?.[0].website}</TxtInfoLink>
             </BtnLink>
 

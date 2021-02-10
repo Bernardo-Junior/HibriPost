@@ -62,7 +62,7 @@ export const Card = styled.View`
 
 export const ScroolView = styled.ScrollView``;
 
-export const SafeAreaView  = styled.SafeAreaView``;
+export const SafeAreaView = styled.SafeAreaView``;
 
 export const TxtTitleCard = styled.Text`
   color: #D9485C;
@@ -110,7 +110,7 @@ export const BtnRight = styled.TouchableOpacity<IBtnOpacity>`
   opacity: ${props => props.state === false ? 1 : 0.3};
   margin-left: ${resp(13)}px;
 `;
-export const BtnLeft = styled(BtnRight)<IBtnOpacity>`
+export const BtnLeft = styled(BtnRight) <IBtnOpacity>`
 `;
 
 export const IconRight = styled(Feather)``;

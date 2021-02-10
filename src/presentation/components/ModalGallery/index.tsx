@@ -34,16 +34,16 @@ import Loading from '../Loading';
 import { IPhoto } from '../../../data/protocols/ModalGallery';
 
 const ModalGallery: React.FC = () => {
-  const { 
-    modalGallery, 
-    setModalGallery, 
-    idAlbum, 
-    setIdAlbum, 
-    name, 
-    setStateModalLoading, 
-    stateModalLoading 
+  const {
+    modalGallery,
+    setModalGallery,
+    idAlbum,
+    setIdAlbum,
+    name,
+    setStateModalLoading,
+    stateModalLoading
   } = useContext(ModalGalleryContext);
-  
+
   const { setPage, photos, setPhotos, setModalPictures } = useContext(PhotoContext);
 
   useEffect(() => {
@@ -83,7 +83,7 @@ const ModalGallery: React.FC = () => {
   const renderItem: ListRenderItem<IPhoto> = ({ item, index }) => {
     return (
       <ContainerCards>
-        <BtnImg onPress={() => {  setPage(index), setModalPictures(true)}}>
+        <BtnImg onPress={() => { setPage(index), setModalPictures(true) }}>
           <Img
             source={{ uri: `${item.thumbnailUrl}` }}
             onLoad={e => {
@@ -114,13 +114,13 @@ const ModalGallery: React.FC = () => {
             setModalGallery(false);
           }}
         >
-            <ScroolView>
-              <ViewBack>
-                <BtnBack onPress={() => { setPhotos([]); setModalGallery(false) }}>
-                  <IconBack name="arrow-left" size={35} />
-                </BtnBack>
-                <TxtTitleScreen>{name}</TxtTitleScreen>
-              </ViewBack>
+          <ScroolView>
+            <ViewBack>
+              <BtnBack onPress={() => { setPhotos([]); setModalGallery(false) }}>
+                <IconBack name="arrow-left" size={35} />
+              </BtnBack>
+              <TxtTitleScreen>{name}</TxtTitleScreen>
+            </ViewBack>
 
             <ViewFlatlist>
               <FlatList
@@ -131,7 +131,7 @@ const ModalGallery: React.FC = () => {
                 renderItem={renderItem}
               />
             </ViewFlatlist>
-            </ScroolView>
+          </ScroolView>
         </Modal>
       </Container>
     </>

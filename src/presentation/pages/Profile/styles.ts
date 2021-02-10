@@ -7,7 +7,7 @@ Feather.loadFont();
 
 import { Linking, Alert } from 'react-native';
 
-export {Linking, Alert};
+export { Linking, Alert };
 
 export const StatusBar = styled.StatusBar``;
 

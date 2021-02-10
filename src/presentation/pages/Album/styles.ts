@@ -24,7 +24,7 @@ export const SearchBarPost = styled(Searchbar)`
   margin-bottom: ${resp(40)}px;
 `;
 
-export {FlatList, RefreshControl};
+export { FlatList, RefreshControl };
 
 export const ContainerCards = styled.View`
   flex: 1;
@@ -46,7 +46,7 @@ export const Cards = styled.View`
   align-items: center;
 `;
 
-export const SafeAreaView  = styled.SafeAreaView``;
+export const SafeAreaView = styled.SafeAreaView``;
 
 export const ScroolView = styled.ScrollView``;
 
@@ -71,7 +71,7 @@ export const BtnRight = styled.TouchableOpacity<IBtnOpacity>`
   opacity: ${props => props.state === false ? 1 : 0.3};
   margin-left: ${resp(13)}px;
 `;
-export const BtnLeft = styled(BtnRight)<IBtnOpacity>`
+export const BtnLeft = styled(BtnRight) <IBtnOpacity>`
 `;
 
 export const IconRight = styled(Feather)``;

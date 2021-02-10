@@ -14,8 +14,8 @@ import {
 
 const Gallery: React.FC = () => {
   const { photos, page, modalPictures, setModalPictures } = useContext(PhotoContext);
-  const size =  {
-    width:1080,
+  const size = {
+    width: 1080,
     height: 1920
   }
 
@@ -27,29 +27,29 @@ const Gallery: React.FC = () => {
       onRequestClose={() => {
         setModalPictures(false);
       }}>
-        <>
-          <Header>
-            <BtnExit onPress={() => {setModalPictures(false)}}>
-              <IconExit name={"close"} size={35} />
-            </BtnExit>
-          </Header>
-          <GallerySwiper 
-            images={
-              photos.map((value, index) => {
-                return ( 
-                    {
-                      uri: `${value.url}`,
-                      dimensions: {width: size.width, height: size.height}
-                    }
-                )
-              }) 
-            }
-            initialPage={page}
-            initialNumToRender={photos.length}
-            sensitiveScroll={true}
-          />
-        </>
-      </Modal>
+      <>
+        <Header>
+          <BtnExit onPress={() => { setModalPictures(false) }}>
+            <IconExit name={"close"} size={35} />
+          </BtnExit>
+        </Header>
+        <GallerySwiper
+          images={
+            photos.map((value, index) => {
+              return (
+                {
+                  uri: `${value.url}`,
+                  dimensions: { width: size.width, height: size.height }
+                }
+              )
+            })
+          }
+          initialPage={page}
+          initialNumToRender={photos.length}
+          sensitiveScroll={true}
+        />
+      </>
+    </Modal>
   )
 }
 
