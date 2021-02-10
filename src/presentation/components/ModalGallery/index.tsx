@@ -71,6 +71,7 @@ const ModalGallery: React.FC = () => {
         visible={stateModalLoading}
         onRequestClose={() => {
           setStateModalLoading(false);
+          setModalGallery(false);
         }}
       >
         <ContainerLoading>
