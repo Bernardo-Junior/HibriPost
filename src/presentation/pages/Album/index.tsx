@@ -2,8 +2,6 @@ import React, { useState, useEffect, useContext, useCallback } from 'react';
 
 import Header from '../../components/Header';
 
-import { Alert, ListRenderItem } from 'react-native';
-
 import ModalGallery from '../../components/ModalGallery';
 
 import ModaGalleryContext from '../../../data/contexts/ModalGallery';
@@ -14,7 +12,6 @@ import {
   SearchBarPost,
   FlatList,
   ContainerCards,
-  Cards,
   ScroolView,
   TxtTitle,
   BtnCards,
@@ -95,23 +92,6 @@ const Album: React.FC = () => {
   }, [page])
 
 
-  const renderItem: ListRenderItem<IAlbum> = ({ item }) => {
-    return (
-      <ContainerCards>
-        <BtnCards onPress={() => {
-          setIdAlbum(item.id),
-            setName(item.title),
-            setModalGallery(true),
-            setTimeout(() => { setStateModalLoading(true) }, 1000)
-        }}>
-          <Cards >
-            <TxtTitle>{item.title}</TxtTitle>
-          </Cards>
-        </BtnCards>
-      </ContainerCards>
-    )
-  }
-
   const _onRefresh = () => {
     setRefreshing(true);
     LoadAlbum();
@@ -179,9 +159,7 @@ const Album: React.FC = () => {
                             setModalGallery(true),
                             setTimeout(() => { setStateModalLoading(true) }, 50)
                         }}>
-                          <Cards>
-                            <TxtTitle>{item.title}</TxtTitle>
-                          </Cards>
+                          <TxtTitle>{item.title}</TxtTitle>
                         </BtnCards>
                       </ContainerCards>
                     )
