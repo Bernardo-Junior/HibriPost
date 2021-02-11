@@ -52,11 +52,11 @@ Ferramentas utilizadas nesse projeto:
 ## 🎯 Processo de Desenvolvimento
 
 <h2>1 – Analise e entendimento do problema.</h2>
-Foi feito um estudo do problema proposto através do e-mail, e estudado as rotas no qual poderia ser acessada pelo site “https://jsonplaceholder.typicode.com/”. 
+Foi feito um estudo do problema proposto através do e-mail, e estudado as rotas no qual poderia ser acessada pelo site: https://jsonplaceholder.typicode.com/ . 
 <h2>2 – Prototipação</h2>
     <h3>2.1 – Etapas</h3>
         <h4>2.1.1 – Cores </h3>
-        As cores foram definidas de acordo com as usadas no site  https://www.hibrido.com.br/sobre-nos/, que foram: 
+        As cores foram definidas de acordo com as usadas no site: https://www.hibrido.com.br/sobre-nos/, que foram: 
 	</br> 
             •	#16394D
 	</br> 
