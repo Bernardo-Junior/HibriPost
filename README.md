@@ -82,7 +82,7 @@ O aplicativo foi desenvolvido usando React Native, com Typescript para a organiz
     $ yarn install
 
     # De um start na aplicação
-    $ npx react-native run-android ou react-native run-android ou yarn start
+    $ npx react-native run-android ou react-native run-android
 ```
 ---
 
