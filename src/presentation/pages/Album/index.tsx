@@ -97,7 +97,7 @@ const Album: React.FC = () => {
   return (
     <>
       <ModalGallery />
-      <StatusBar backgroundColor={"#E5E5E5"} />
+      <StatusBar backgroundColor={"#E5E5E5"} barStyle="dark-content" />
       <Container>
         {
           con
