@@ -128,12 +128,10 @@ const Post: React.FC = () => {
     setPosts(result);
   }
 
-
-
   return (
     <>
       <ModalPost />
-      <StatusBar backgroundColor={"#FFFFFF"} barStyle="dark-content" />
+      <StatusBar backgroundColor={"#E5E5E5"} barStyle="dark-content" />
       <Container>
         {con
           ?
