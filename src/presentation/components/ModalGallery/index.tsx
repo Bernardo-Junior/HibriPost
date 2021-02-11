@@ -46,7 +46,12 @@ const ModalGallery: React.FC = () => {
     stateModalLoading
   } = useContext(ModalGalleryContext);
 
-  const { setPage, photos, setPhotos, setModalPictures } = useContext(PhotoContext);
+  const { 
+    setPage, 
+    photos, 
+    setPhotos, 
+    setModalPictures 
+  } = useContext(PhotoContext);
 
   useEffect(() => {
     setPhotos([])
@@ -61,7 +66,8 @@ const ModalGallery: React.FC = () => {
       })
       .catch(error => {
         setStateModalLoading(false);
-        console.log("Error no modalGallery")
+        Alert.alert("Erro de internet", "Ocorreu um erro ao carregar as imagens")
+        setModalGallery(false);
       })
   }, [idAlbum, modalGallery])
 
