@@ -28,7 +28,7 @@ const Login: React.FC = () => {
 
   return (
     <>
-      <StatusBar backgroundColor={"#E5E5E5"} barStyle="dark-content" />
+      <StatusBar backgroundColor={"#FFFFFF"} barStyle="dark-content" />
       <Container>
         <ScrollView keyboardShouldPersistTaps='handled' >
           <Header>
